@@ -8,7 +8,7 @@
 :root {
   --text-color: #ffffff;
   --foreground: #171717;
-  --gradient: linear-gradient(150deg, rgba(255,141,92,1) 0%, rgba(241,67,44,1) 13%, rgba(233,18,12,1) 23%, rgba(230,0,0,1) 26%, rgba(215,3,3,1) 34%, rgba(174,14,14,1) 51%, rgba(159,19,19,1) 60%, rgba(96,19,19,1) 100%);
+  --gradient-text: linear-gradient(350deg, rgba(233,18,12,1) 0%, rgba(215,3,3,1) 51%, rgba(174,14,14,1) 100%);
   --font-family: 'Lato', sans-serif;
 }
 
@@ -21,4 +21,11 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.text-gradient {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

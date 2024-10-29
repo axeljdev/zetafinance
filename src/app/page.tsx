@@ -14,47 +14,54 @@ export default function Home() {
     <main>
       <HeroSection />
       <Simulator />
-      <article className="p-4 flex flex-col pb-10">
-        <h2 className="text-xl font-semibold uppercase py-5">
-          <span className="text-secondary ">Zeta</span> Finance, votre
+      <article className="p-4 lg:px-60 lg:mt-12 flex flex-col pb-10 hero-section">
+        <h2 className="text-2xl font-semibold uppercase py-5">
+          <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits
         </h2>
-        <aside className="flex flex-col bg-gradient-card-darkest rounded-xl p-4 text-textColor space-y-4">
-          <h3 className="text-lg uppercase font-semibold">Qui sommes-nous ?</h3>
-          <p className="font-light">
-            ZETA FINANCE est votre société spécialisée dans le regroupement de
-            crédits.
-          </p>
-          <p className="font-light">
-            Notre mission est de négocier à votre place les meilleures
-            conditions (taux, durée, montage financier…) en mettant ces
-            établissements en concurrence, nous vous proposerons la solution la
-            plus adaptée à votre situation financière.
-          </p>
-        </aside>
-        <div className="flex items-baseline gap-2 pt-5">
-          <Image src={arrow} alt="" />
-          <p className="uppercase">Un interlocuteur unique à vos cotés</p>
+        <div className="flex flex-col lg:flex-row gap-4">
+          <aside className="flex flex-col bg-gradient-card-darkest lg:h-fit lg:w-1/2 rounded-xl p-4 text-textColor space-y-4">
+            <h3 className="text-lg uppercase font-semibold">
+              Qui sommes-nous ?
+            </h3>
+            <p className="font-light">
+              ZETA FINANCE est votre société spécialisée dans le regroupement de
+              crédits.
+            </p>
+            <p className="font-light">
+              Notre mission est de négocier à votre place les meilleures
+              conditions (taux, durée, montage financier…) en mettant ces
+              établissements en concurrence, nous vous proposerons la solution
+              la plus adaptée à votre situation financière.
+            </p>
+          </aside>
+          <div className="divider hidden divider-horizontal before:bg-secondary before:w-[1px] after:bg-secondary after:w-[1px] lg:flex"></div>
+          <div className="flex flex-col gap-4 lg:w-1/2">
+            <div className="flex items-baseline gap-2 pt-5 lg:pt-0">
+              <Image src={arrow} alt="" />
+            <p className="uppercase">Un interlocuteur unique à vos cotés</p>
+          </div>
+          <div className="flex items-baseline gap-2 pt-2">
+            <Image src={arrow} alt="" />
+            <p className="uppercase">
+              Proposer l&apos;offre la plus adaptée à votre situation
+            </p>
+          </div>
+          <div className="flex items-baseline gap-2 py-2">
+            <Image src={arrow} alt="" />
+            <p className="uppercase ">
+              Une étude de faisabilité immédiate sur simple appel
+            </p>
+          </div>
+          <div className="flex items-baseline gap-2">
+            <Image src={arrow} alt="" />
+            <p className="uppercase ">
+              Une offre de regroupement de crédits aux meilleurs conditions
+            </p>
+            </div>
+          </div>
         </div>
-        <div className="flex items-baseline gap-2 pt-2">
-          <Image src={arrow} alt="" />
-          <p className="uppercase">
-            Proposer l&apos;offre la plus adaptée à votre situation
-          </p>
-        </div>
-        <div className="flex items-baseline gap-2 py-2">
-          <Image src={arrow} alt="" />
-          <p className="uppercase ">
-            Une étude de faisabilité immédiate sur simple appel
-          </p>
-        </div>
-        <div className="flex items-baseline gap-2">
-          <Image src={arrow} alt="" />
-          <p className="uppercase ">
-            Une offre de regroupement de crédits aux meilleurs conditions
-          </p>
-        </div>
-        <aside className="flex items-center justify-between mt-5">
+        <aside className="flex items-center justify-between mt-5 lg:mt-10">
           <div className="bg-gradient-card-light rounded-xl p-2 flex flex-col items-center text-center justify-center w-28 h-40">
             <Image src={satisfaction} className="w-14" alt="" />
             <p className="text-xs uppercase text-textColor">
@@ -214,25 +221,29 @@ export default function Home() {
           </div>
           <div className="flex w-full items-center justify-between gap-2 text-textColor text-sm pt-6">
             <div className="flex flex-col items-center">
-              <p className="text-center text-nowrap pb-4">Avant rachat de crédits</p>
-              <Image src={before} alt="graphique avant rachat de crédits"/>
+              <p className="text-center text-nowrap pb-4">
+                Avant rachat de crédits
+              </p>
+              <Image src={before} alt="graphique avant rachat de crédits" />
             </div>
             <div className="divider divider-horizontal before:bg-secondary before:w-[1px] after:bg-secondary after:w-[1px]"></div>
             <div className="flex flex-col items-center">
-              <p className="text-center text-nowrap pb-4">Après rachat de crédits</p>
+              <p className="text-center text-nowrap pb-4">
+                Après rachat de crédits
+              </p>
               <Image src={after} alt="graphique après rachat de crédits" />
             </div>
           </div>
-            <div className="flex items-center gap-5 text-textColor text-sm pt-6">
-              <div className="flex items-center gap-2">
+          <div className="flex items-center gap-5 text-textColor text-sm pt-6">
+            <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-secondary rounded-sm"></div>
               <p>Mensualités crédits</p>
-              </div>
-              <div className="flex items-center gap-2">
+            </div>
+            <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-[#D9D9D9]  rounded-sm"></div>
               <p>Reste à vivres</p>
-              </div>
             </div>
+          </div>
         </aside>
       </article>
     </main>

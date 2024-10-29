@@ -4,32 +4,40 @@ import Link from "next/link";
 import { useState } from "react";
 
 function Consommation() {
-  const [revenu, setRevenue] = useState(1000);
-  const [loyer, setLoyer] = useState(400);
-  const [type, setType] = useState("");
+  const [revenu, setRevenue] = useState<number | undefined>(undefined);
+  const [loyer, setLoyer] = useState<number | undefined>(undefined);
+  const [type, setType] = useState("locataire");
 
   return (
     <>
-      <form className="flex flex-col items-center justify-center">
-        <p>Revenu mensuel du foyer</p>
+      <form className="flex flex-col items-center justify-center lg:pt-5">
+        <p className="lg:text-lg font-medium">
+          Revenu mensuel du foyer
+        </p>
         <div className="flex gap-4 justify-center pt-3 w-full">
           <input
             type="range"
             min={0}
             max={10000}
-            value={revenu}
+            value={revenu || ''}
             onChange={(e) => setRevenue(parseInt(e.target.value))}
-            className="range range-xs w-full mt-3 mb-7 [--range-shdw:#db0505] [--range-shdw:[&::-webkit-slider-runnable-track]:bg-gradient-button-light] [&::-webkit-slider-runnable-track]:bg-gray-300"
+            className="range range-xs w-3/4 mt-3 mb-7 [--range-shdw:#db0505] [--range-shdw:[&::-webkit-slider-runnable-track]:bg-gradient-button-light] [&::-webkit-slider-runnable-track]:bg-gray-300"
           />
+          <label className="input input-bordered flex items-center gap-1 text-primary focus-within:outline-secondary focus-within:outline-1">
           <input
             type="number"
-            value={revenu}
-            onChange={(e) => setRevenue(parseInt(e.target.value))}
-            className="input input-bordered w-20 h-10 text-primary focus:outline-secondary focus:outline-1"
+            min="0"
+            placeholder="1400"
+            value={revenu || ''}
+            onChange={(e) => setRevenue(Math.max(0, parseInt(e.target.value)))}
+            className="grow w-14 h-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
+            required
           />
+          €/mois
+          </label>
         </div>
-        <p>Vous êtes :</p>
-        <div className="flex gap-4 justify-center my-4">
+        <p className="lg:text-lg font-medium">Vous êtes :</p>
+        <div className="flex gap-4 justify-center my-4 lg:my-5 lg:pb-5 lg:gap-10">
           <label
             className={`btn text-textColor rounded-full hover:bg-gradient-button-light hover:border-none ${
               type === "locataire"
@@ -63,7 +71,7 @@ function Consommation() {
             Propriétaire
           </label>
           <label
-            className={`btn text-textColor rounded-full ${
+            className={`btn text-textColor rounded-full hover:bg-gradient-button-light hover:border-none ${
               type === "heberge"
                 ? "btn bg-gradient-button-light border-none"
                 : "btn bg-transparent"
@@ -79,29 +87,39 @@ function Consommation() {
             Hébergé
           </label>
         </div>
-        <p>Montant de votre loyer</p>
-        <div className="flex gap-4 justify-center pt-3 w-full">
+        {type === "locataire" && (
+          <>
+            <p>Montant de votre loyer</p>
+            <div className="flex gap-4 justify-center pt-3 w-full">
           <input
             type="range"
             min={0}
             max={10000}
-            value={loyer}
+            value={loyer || ''}
             onChange={(e) => setLoyer(parseInt(e.target.value))}
-            className="range range-xs w-full mt-3 mb-7 [--range-shdw:#db0505] [--range-shdw:[&::-webkit-slider-runnable-track]:bg-gradient-button-light] [&::-webkit-slider-runnable-track]:bg-gray-300"
+            className="range range-xs w-3/4 mt-3 mb-7 [--range-shdw:#db0505] [--range-shdw:[&::-webkit-slider-runnable-track]:bg-gradient-button-light] [&::-webkit-slider-runnable-track]:bg-gray-300"
           />
+          <label className="input input-bordered flex items-center gap-1 text-primary focus-within:outline-secondary focus-within:outline-1">
           <input
             type="number"
-            value={loyer}
-            onChange={(e) => setLoyer(parseInt(e.target.value))}
-            className="input input-bordered w-20 h-10 text-primary focus:outline-secondary focus:outline-1"
+            min="0"
+            placeholder="600"
+            value={loyer || ''}
+            onChange={(e) => setLoyer(Math.max(0, parseInt(e.target.value)))}
+            className="grow w-14 h-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
+            required
           />
+          €/mois
+          </label>
         </div>
         <Link
           href="/"
-          className=" btn mt-5 w-2/3 border-none bg-gradient-button-light uppercase text-textColor rounded-full bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
+          className=" btn mt-10 w-[94%] border-none bg-gradient-button-light uppercase text-textColor rounded-full bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
         >
-          Passez à l&apos;étape suivante
-        </Link>
+              Passez à l&apos;étape suivante
+            </Link>
+          </>
+        )}
       </form>
     </>
   );

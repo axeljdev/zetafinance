@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function HeroSection() {
   return (
-    <header className="hero-section flex flex-col items-center pt-10 lg:pt-40 pb-10">
+    <header className="hero-section flex flex-col items-center pt-10 lg:pt-40 lg:pb-24 pb-10">
       <div className="flex flex-col items-center justify-center">
         <Image
           src={logo}
@@ -24,7 +24,7 @@ function HeroSection() {
           Nos spécialistes financiers sont à votre écoute
         </h1>
         <Link
-          href="*"
+          href="/"
           className=" btn mt-10 text-md bg-gradient-button-dark uppercase text-textColor rounded-full px-14 group/button relative inline-flex items-center justify-center overflow-hidden bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
         >
           Contact{" "}

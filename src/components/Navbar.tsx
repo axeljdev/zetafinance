@@ -12,6 +12,10 @@ function Navbar() {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
     <div className="drawer">
       <input
@@ -28,7 +32,7 @@ function Navbar() {
             <label
               htmlFor="my-drawer-3"
               aria-label="ouvrir la barre latérale"
-              className="btn btn-square btn-ghost"
+              className="btn btn-square btn-ghost hover:bg-secondary/75 hover:text-textColor transition-all duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,10 +143,10 @@ function Navbar() {
           {/* Icône de croix pour fermer */}
           <div className="flex items-center pb-8 pt-2 justify-between pr-4">
             <li className="flex justify-start w-fit">
-              <label htmlFor="my-drawer-3" className="cursor-pointer">
+              <label htmlFor="my-drawer-3" className="cursor-pointer btn btn-ghost w-12 p-0 hover:bg-secondary/75 hover:text-textColor transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white hover:border hover:border-secondary"
+                  className="h-6 w-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -156,7 +160,9 @@ function Navbar() {
                 </svg>
               </label>
             </li>
-            <Image src={logo} alt="logo" className="w-48 " />
+            <Link href="/" >
+              <Image src={logo} alt="logo" className="w-48 " />
+            </Link>
           </div>
           {/* Reste du contenu de la barre latérale */}
           <li className="group/button">
@@ -171,35 +177,35 @@ function Navbar() {
               </summary>
               <ul>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={closeDrawer}>
                     <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
                       Définition
                     </p>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={closeDrawer}>
                     <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
                       Les avantages
                     </p>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={closeDrawer}>
                     <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
                       Quel crédit ?
                     </p>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={closeDrawer}>
                     <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
                       Dans quelle situation ?
                     </p>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={closeDrawer}>
                     <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
                       2 types de rachat
                     </p>
@@ -209,14 +215,14 @@ function Navbar() {
             </details>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/" onClick={closeDrawer}>
               <p className="hover:border-b hover:border-secondary pb-1 text-lg">
                 Qui sommes-nous ?
               </p>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/" onClick={closeDrawer}>
               <p className="text-base bg-gradient-button-light uppercase text-textColor rounded-full px-10 py-2 bg-secondary font-semibold focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2 mt-4">
                 Contact
               </p>

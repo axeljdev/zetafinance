@@ -29,3 +29,15 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.clip-path-footer {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hoverRed {
+  @apply hover:text-secondary transition-all duration-300;
+}
+
+.focus-outline {
+  @apply focus:outline-secondary focus:outline-1;
+}

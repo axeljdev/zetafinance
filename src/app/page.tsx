@@ -7,6 +7,7 @@ import economies from "@/images/zeta-economies.svg";
 import mensualites from "@/images/zeta-mensualites.svg";
 import after from "@/images/diagram-after.svg";
 import before from "@/images/diagram-before.svg";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -213,13 +214,13 @@ export default function Home() {
           </div>
           <div className="flex w-full items-center justify-between gap-2 text-textColor text-sm pt-6">
             <div className="flex flex-col items-center">
-              <p>Avant rachat de crédits</p>
-              <Image src={before} alt="" />
+              <p className="text-center text-nowrap pb-4">Avant rachat de crédits</p>
+              <Image src={before} alt="graphique avant rachat de crédits"/>
             </div>
             <div className="divider divider-horizontal before:bg-secondary before:w-[1px] after:bg-secondary after:w-[1px]"></div>
             <div className="flex flex-col items-center">
-              <p>Après rachat de crédits</p>
-              <Image src={after} alt="" />
+              <p className="text-center text-nowrap pb-4">Après rachat de crédits</p>
+              <Image src={after} alt="graphique après rachat de crédits" />
             </div>
           </div>
             <div className="flex items-center gap-5 text-textColor text-sm pt-6">

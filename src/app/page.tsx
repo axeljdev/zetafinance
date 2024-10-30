@@ -1,4 +1,4 @@
-import HeroSection from "@/components/home/HeroSection";
+import HeroSection from "@/components/home/HeroSectionHome";
 import Simulator from "@/components/home/simulator/Simulator";
 import Image from "next/image";
 import arrow from "@/images/zeta-arrow.svg";
@@ -19,7 +19,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <Simulator />
-      <article className="p-4 lg:px-60 lg:mt-12 flex flex-col pb-10 hero-section">
+      <article className="p-4 lg:px-60 lg:mt-12 xl:px-80 flex flex-col pb-10 hero-section">
         <h2 className="text-2xl font-semibold uppercase py-5">
           <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits

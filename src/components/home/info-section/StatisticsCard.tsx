@@ -12,7 +12,7 @@ interface StatisticsCardProps {
 export default function StatisticsCard({ icon, statistic, label, image }: StatisticsCardProps) {
   return (
     <div className="flex">
-      <div className="bg-gradient-card-light rounded-xl p-4 flex flex-col items-center text-center justify-center lg:rounded-r-none w-28 lg:h-36 lg:w-40 h-40">
+      <div className="bg-gradient-card-light rounded-xl p-4 flex flex-col items-center text-center justify-center lg:rounded-r-none w-28 lg:w-44 xl:h-48">
         <Image src={icon} className="w-14" alt="" />
         <p className="text-xs uppercase text-textColor">
           <span className="font-semibold text-3xl">{statistic}</span>
@@ -20,7 +20,7 @@ export default function StatisticsCard({ icon, statistic, label, image }: Statis
           {label}
         </p>
       </div>
-      <Image src={image} className="hidden lg:block" alt="" />
+      <Image src={image} className="hidden lg:block object-cover rounded-r-xl" alt="" />
     </div>
   );
 } 

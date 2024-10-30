@@ -6,14 +6,14 @@ function HeroSection() {
   return (
     <header className="hero-section flex flex-col items-center pt-10 lg:pt-40 lg:pb-24 pb-10">
       <div className="flex flex-col items-center justify-center">
-        <Image
-          src={logo}
+          <Image
+            src={logo}
           alt="logo"
           width={150}
           height={73}
           className="w-40 md:w-2/4 lg:w-56 xl:w-2/4 pb-10"
-          priority
-        />
+            priority
+          />
         <h2 className="text-[1.4rem] md:text-3xl lg:text-4xl xl:text-5xl uppercase mx-10 text-center text-wrap w-full font-semibold text-gradient">
           Un conseil sur nos services?{" "}
         </h2>

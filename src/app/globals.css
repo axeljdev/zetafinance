@@ -34,6 +34,12 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
+@media (min-width: 1024px) {
+  .clip-path-footer {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  }
+}
+
 .hoverRed {
   @apply hover:text-secondary transition-all duration-300;
 }

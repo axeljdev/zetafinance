@@ -23,6 +23,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.hero-section-dark {
+  background-image: url('../images/bg-hero-dark.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .text-gradient {
   background: var(--gradient-text);
   background-clip: text;

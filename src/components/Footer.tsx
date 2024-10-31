@@ -3,8 +3,8 @@ import logo from "@/images/logo-zeta-white.svg";
 import Link from "next/link";
 import arrowRight from "@/images/zeta-arrow.svg";
 import background from "@/images/zeta-footer-dsktp.png";
-import ContactInfo from "./Footer/ContactInfo";
-import FooterLinks from "./Footer/FooterLinks";
+import ContactInfo from "./footer/ContactInfo";
+import FooterLinks from "./footer/FooterLinks";
 
 const FooterCTA = () => (
   <div className="relative flex lg:justify-end">
@@ -28,7 +28,7 @@ const FooterCTA = () => (
 );
 
 const LegalLinks = () => (
-  <ul className="flex gap-2 lg:gap-10 pt-6 uppercase text-xs font-semibold w-full justify-center pr-20">
+  <ul className="flex gap-2 lg:gap-10 pt-6 uppercase text-xs font-semibold w-full justify-center lg:pr-20">
     {['Mentions légales', 'Procédure RGPD'].map((text) => (
       <li key={text} className="flex items-center gap-2 hoverRed">
         <Image src={arrowRight} alt="arrow right" className="w-2 h-2" />

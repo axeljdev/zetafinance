@@ -5,9 +5,11 @@ import logo from "@/images/zeta-site-logo-font.svg";
 import Link from "next/link";
 import { useState } from "react";
 import Drawer from "@/components/Drawer";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const pathname = usePathname();
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -39,9 +41,7 @@ function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className={`inline-block h-6 w-6 stroke-current ${
-                  isDrawerOpen ? "text-white" : ""
-                }`}
+                className={`inline-block h-6 w-6 stroke-current ${pathname !== "/" ? "stroke-white" : ""}`}
               >
                 <path
                   strokeLinecap="round"
@@ -113,7 +113,7 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  href="*"
+                  href="/"
                   className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor rounded-full px-5 transition-all duration-300 ease-in-out "
                 >
                   Les étapes et délais
@@ -121,7 +121,7 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  href="*"
+                  href="/contact"
                   className="text-md bg-gradient-button-light uppercase text-textColor rounded-full px-10 group/button relative inline-flex items-center justify-center overflow-hidden bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
                 >
                   Contact{" "}

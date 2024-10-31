@@ -16,7 +16,7 @@ function FooterLinks() {
         </li>
         <li className="flex items-center gap-2 hoverRed">
           <Image src={arrowRight} alt="arrow right" className="w-4 h-4" />
-          <Link href="/">Contactez-nous</Link>
+          <Link href="/contact">Contactez-nous</Link>
         </li>
       </ul>
     </div>

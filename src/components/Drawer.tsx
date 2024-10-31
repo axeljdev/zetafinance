@@ -103,7 +103,7 @@ function Drawer({ closeDrawer }: DrawerProps) {
           </Link>
         </li>
         <li>
-          <Link href="/" onClick={closeDrawer}>
+          <Link href="/contact" onClick={closeDrawer}>
             <p className="text-base bg-gradient-button-light uppercase text-textColor rounded-full px-10 py-2 bg-secondary font-semibold focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2 mt-4">
               Contact
             </p>

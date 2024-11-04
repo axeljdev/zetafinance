@@ -3,7 +3,7 @@
 import Image from "next/image";
 import logo from "@/images/zeta-site-logo-font.svg";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Drawer from "@/components/Drawer";
 import { usePathname } from "next/navigation";
 
@@ -17,6 +17,14 @@ function Navbar() {
 
   const closeDrawer = () => {
     setIsDrawerOpen(false);
+  };
+
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  const closeDropdown = () => {
+    if (detailsRef.current) {
+      detailsRef.current.open = false;
+    }
   };
 
   return (
@@ -63,47 +71,52 @@ function Navbar() {
             <ul className="menu menu-horizontal items-center gap-4">
               {/* Navbar menu content here */}
               <li>
-                <details>
-                  <summary className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor rounded-full px-5 transition-all duration-300 ease-in-out">
+                <details ref={detailsRef}>
+                  <summary className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor rounded-full px-5">
                     Regroupement de crédit
                   </summary>
-                  <ul className="bg-primary text-textColor rounded-t-none w-full font-medium uppercase p-2 ">
+                  <ul className="bg-primary text-textColor rounded-t-none w-full font-medium uppercase p-2">
                     <li>
                       <Link
-                        className="hover:bg-gradient-button-light hover:text-textColor px-5 transition-all duration-300 ease-in-out"
-                        href="/"
+                        onClick={closeDropdown}
+                        className="hover:bg-gradient-button-light hover:text-textColor px-5"
+                        href="/regroupement-credit"
                       >
                         Définition
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="hover:bg-gradient-button-light hover:text-textColor px-5 transition-all duration-300 ease-in-out"
-                        href="/"
+                        onClick={closeDropdown}
+                        className="hover:bg-gradient-button-light hover:text-textColor px-5"
+                        href="/regroupement-credit"
                       >
                         Les avantages
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="hover:bg-gradient-button-light hover:text-textColor px-5 transition-all duration-300 ease-in-out"
-                        href="/"
+                        onClick={closeDropdown}
+                        className="hover:bg-gradient-button-light hover:text-textColor px-5"
+                        href="/regroupement-credit"
                       >
                         Quel crédit ?
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="hover:bg-gradient-button-light hover:text-textColor px-5 transition-all duration-300 ease-in-out"
-                        href="/"
+                        onClick={closeDropdown}
+                        className="hover:bg-gradient-button-light hover:text-textColor px-5"
+                        href="/regroupement-credit"
                       >
                         Dans quel situation ?
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="hover:bg-gradient-button-light hover:text-textColor px-5 transition-all duration-300 ease-in-out"
-                        href="/"
+                        onClick={closeDropdown}
+                        className="hover:bg-gradient-button-light hover:text-textColor px-5"
+                        href="/regroupement-credit"
                       >
                         2 types de rachat
                       </Link>
@@ -114,7 +127,7 @@ function Navbar() {
               <li>
                 <Link
                   href="/"
-                  className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor rounded-full px-5 transition-all duration-300 ease-in-out "
+                  className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor active:text-textColor rounded-full px-5"
                 >
                   Les étapes et délais
                 </Link>

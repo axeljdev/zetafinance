@@ -3,13 +3,27 @@
 import Image from "next/image";
 import logo from "@/images/zeta-site-logo-font.svg";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Drawer from "@/components/Drawer";
 import { usePathname } from "next/navigation";
 
 function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector('header');
+      if (heroSection && pathname !== '/') {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setIsScrolledPastHero(heroBottom < 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -43,13 +57,17 @@ function Navbar() {
             <label
               htmlFor="my-drawer-3"
               aria-label="ouvrir la barre latérale"
-              className="btn btn-square btn-ghost hover:bg-secondary/75 hover:text-textColor transition-all duration-300"
+              className={`btn btn-square btn-ghost hover:bg-secondary/75 hover:text-textColor transition-all duration-300 ${
+                pathname === '/' || isScrolledPastHero ? 'bg-gray-100/80' : 'bg-gray-100/20'
+              }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className={`inline-block h-6 w-6 stroke-current ${pathname !== "/" ? "stroke-white" : ""}`}
+                className={`inline-block h-6 w-6 stroke-current ${
+                  pathname === '/' || isScrolledPastHero ? 'stroke-black' : 'stroke-white'
+                }`}
               >
                 <path
                   strokeLinecap="round"

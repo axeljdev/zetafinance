@@ -15,13 +15,13 @@ const benefits = [
 
 function Benefits() {
     return (
-        <section className="flex flex-col px-2">
-            <h3 className="text-xl font-semibold uppercase pb-4 pl-4 text-secondary">
+        <section className="flex flex-col px-2 lg:w-2/3">
+            <h3 className="text-xl font-semibold uppercase pb-4 pl-4 text-secondary lg:text-2xl lg:pt-4">
                 Les avantages
             </h3>
-            <ul className="flex flex-col justify-start gap-2 pb-8">
+            <ul className="flex flex-col justify-start gap-2 pb-8 lg:pb-0 lg:pt-4 lg:gap-4 lg:text-xl lg:font-semibold">
                 {benefits.map((benefit, index) => (
-                    <li key={index} className="flex text-sm">
+                    <li key={index} className="flex">
                         <FaAngleRight className="text-secondary text-lg mt-1 min-w-[1.5rem]" />
                         <p className="pl-2">{benefit}</p>
                     </li>

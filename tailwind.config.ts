@@ -9,9 +9,6 @@
     ],
     theme: {
       extend: {
-        fontSize: {
-          'sm': '1rem',
-        },
         colors: {
           primary: "#1E1E1E",
           secondary: "#db0505",

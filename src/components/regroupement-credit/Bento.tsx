@@ -12,43 +12,47 @@ import tresorerie from "@/images/tresorerie.svg"
 
 function Bento() {
   return (
-    <ul className="grid grid-cols-3 gap-2 p-4">
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={immo} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Crédit immobilier</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={conso} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Crédit consommation</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={auto} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Crédit voiture</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={travaux} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Crédit travaux</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={renouvelable} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Crédit renouvelables</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={bancaire} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Découvert bancaire</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={dettes} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Dettes fiscales</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={familiales} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Dettes personnelles, familiales</p>
-        </li>
-        <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-base">
-          <Image src={tresorerie} alt="icon" className="bg-gradient-card-darkest rounded-lg p-3 w-20 h-20" />
-          <p className="uppercase text-center">Trésorerie</p>
-        </li>
+    <ul className="grid grid-cols-3 gap-2 p-4 lg:w-2/3 lg:mx-auto">
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image 
+          src={immo} 
+          alt="icon" 
+          className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" 
+        />
+        <p className="uppercase text-center lg:w-32">Crédit immobilier</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={conso} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Crédit consommation</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={auto} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Crédit voiture</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={travaux} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Crédit travaux</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={renouvelable} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Crédit renouvelables</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={bancaire} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Découvert bancaire</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={dettes} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Dettes fiscales</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={familiales} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Dettes personnelles, familiales</p>
+      </li>
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+        <Image src={tresorerie} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
+        <p className="uppercase text-center lg:w-32">Trésorerie</p>
+      </li>
     </ul>
   )
 }

@@ -44,6 +44,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.hero-section-et-delais {
+  background-image: url('../images/bg-etapes-et-delais.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .text-gradient {
   background: var(--gradient-text);
   background-clip: text;
@@ -89,4 +96,12 @@ a:visited {
 .navbar a:active,
 .drawer a:active {
   color: #FFFFFF !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h3[id^="etape-"] {
+  scroll-margin-top: 100px; /* Ajustez cette valeur selon vos besoins */
 }

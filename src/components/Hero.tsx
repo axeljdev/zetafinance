@@ -13,7 +13,9 @@ function Hero({title, bg}: {title: string, bg: string}) {
   const pageName = pathname.split("/").pop() || "Accueil"
   const formattedPageName = pageName === "regroupement-credit" 
     ? "Regroupement de crédit"
-    : pageName.charAt(0).toUpperCase() + pageName.slice(1)
+    : pageName === "etapes-et-delais"
+      ? "Les étapes et délais"
+      : pageName.charAt(0).toUpperCase() + pageName.slice(1)
 
   return (
     <header className={`flex flex-col items-center justify-center ${bg} pt-10 lg:pt-40 lg:pb-24 pb-10 text-textColor`}>

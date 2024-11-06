@@ -38,7 +38,7 @@ function Form() {
           ></textarea>
           <button
             type="submit"
-            className="btn rounded-full bg-gradient-button-light lg:w-1/2 hover:bg-gradient-button-dark hover:scale-105 transition-all duration-300 ease-in-out text-white uppercase"
+            className="btn rounded-full bg-gradient-button-light lg:w-2/3 hover:bg-gradient-button-dark hover:scale-105 transition-all duration-300 ease-in-out text-white uppercase"
           >
             Envoyer votre message <FaAngleRight />
           </button>

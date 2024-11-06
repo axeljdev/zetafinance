@@ -10,7 +10,7 @@ function page() {
     <>
       <Hero title="Regroupement de crédit" bg="hero-section-regroupement" />
       <Definition />
-      <div className="flex flex-col lg:flex-row lg:px-36 lg:py-10">
+      <div className="flex flex-col lg:flex-row lg:px-32 2xl:px-52 lg:py-10">
         <Bento />
         <div className="divider divider-horizontal before:bg-secondary before:w-[5px] after:bg-secondary after:w-[5px]"></div>
         <Benefits />

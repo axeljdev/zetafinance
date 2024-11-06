@@ -12,8 +12,8 @@ import tresorerie from "@/images/tresorerie.svg"
 
 function Bento() {
   return (
-    <ul className="grid grid-cols-3 gap-2 p-4 lg:w-2/3 lg:mx-auto">
-      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+    <ul className="grid grid-cols-3 gap-2 p-4 lg:w-2/3">
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit xl:pb-6">
         <Image 
           src={immo} 
           alt="icon" 
@@ -21,15 +21,15 @@ function Bento() {
         />
         <p className="uppercase text-center lg:w-32">Crédit immobilier</p>
       </li>
-      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit xl:pb-6">
         <Image src={conso} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
         <p className="uppercase text-center lg:w-32">Crédit consommation</p>
       </li>
-      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit xl:pb-6">
         <Image src={auto} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
         <p className="uppercase text-center lg:w-32">Crédit voiture</p>
       </li>
-      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit">
+      <li className="flex flex-col items-center gap-2 text-xs font-semibold lg:text-sm lg:w-fit xl:pb-6">
         <Image src={travaux} alt="icon" className="bg-gradient-card-darkest rounded-xl p-4 w-20 h-20 lg:w-36 lg:h-36" />
         <p className="uppercase text-center lg:w-32">Crédit travaux</p>
       </li>

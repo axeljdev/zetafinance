@@ -27,7 +27,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @apply lg:h-[13rem];
+  @apply lg:h-[14rem];
 }
 
 .hero-section-dark {

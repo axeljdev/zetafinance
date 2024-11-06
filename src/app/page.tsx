@@ -19,7 +19,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <Simulator />
-      <article className="p-4 lg:px-60 lg:mt-12 xl:px-80 flex flex-col pb-10 hero-section">
+      <article className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 hero-section 2xl:px-64">
         <h2 className="text-2xl font-semibold uppercase py-5">
           <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits
@@ -66,7 +66,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <aside className="flex items-center justify-between lg:gap-10 mt-5 lg:mt-10">
+        <aside className="flex items-center justify-between xl:gap-10 mt-5 xl:mt-10">
           <StatisticsCard
             icon={satisfaction}
             statistic="1K"

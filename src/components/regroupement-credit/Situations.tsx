@@ -21,11 +21,11 @@ const situations = [
 
 function Situations() {
   return (
-    <section className="flex flex-col px-2 lg:px-36">
+    <section className="flex flex-col px-2 lg:px-36 2xl:px-56">
       <h3 className="text-xl lg:text-2xl lg:py-10 font-semibold uppercase pb-4 pl-4 text-secondary">
         Dans quelles situations ?
       </h3>
-      <ul className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 justify-start gap-4 px-2 pb-4">
+      <ul className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 justify-start gap-4 px-2 lg:px-0 pb-4">
         {situations.map((situation, index) => (
           <li key={index} className="relative p-[0.3rem] rounded-2xl bg-gradient-button-light">
             <div className="flex flex-col bg-textColor lg:h-[20rem] rounded-xl p-4">

@@ -10,11 +10,11 @@ const list = [
 
 function CreditsTypes() {
   return (
-    <>
-      <h3 className="px-4 pt-4 text-xl font-semibold uppercase pb-10">
+    <article>
+      <h3 className="px-4 pt-4 text-xl font-semibold uppercase pb-10 lg:text-2xl lg:px-36 2xl:px-56">
         2 types de <span className="text-secondary">rachat de crédits</span>
       </h3>
-      <div className="bg-section py-8 flex flex-col lg:flex-row lg:justify-center lg:gap-4">
+      <div className="bg-section py-8 flex flex-col lg:flex-row lg:px-36 lg:gap-4 2xl:px-56 2xl:gap-20">
         <section className="bg-gradient-card-darkest relative text-textColor p-5 mx-4 rounded-2xl lg:w-[30rem] lg:h-[22.5rem] lg:mx-0">
           <h4 className="text-lg font-semibold uppercase pb-12 lg:pb-10 after:absolute after:top-24 lg:after:top-16 after:left-4 after:w-10 after:h-[5px] after:bg-secondary">
             Rachat de crédit à la consommation
@@ -34,16 +34,16 @@ function CreditsTypes() {
             trésorerie supplémentaire.
           </p>
         </section>
-        <ul className="flex flex-col justify-start gap-2 px-4 pt-4 lg:gap-4">
+        <ul className="flex flex-col justify-start gap-2 px-4 pt-4 lg:px-0 lg:gap-4">
           {list.map((item, index) => (
-            <li key={index} className="flex text-sm lg:text-lg">
+            <li key={index} className="flex text-sm lg:text-xl">
               <FaAngleRight className="text-secondary text-lg mt-1 min-w-[1.5rem]" />
               <p className="pl-2">{item}</p>
             </li>
           ))}
         </ul>
       </div>
-      <div className="lg:mt-48 lg:w-[34rem] lg:ml-40">
+      <div className="lg:mt-48 lg:w-[34rem] lg:ml-40 2xl:ml-56">
         <p className="px-4 pt-4 text-lg font-semibold uppercase">
           Ce nouveau prêt peut être :
         </p>
@@ -65,12 +65,12 @@ function CreditsTypes() {
           </li>
         </ul>
       </div>
-      <div className="bg-section py-8 flex flex-col lg:flex-row lg:justify-center lg:gap-4 mt-4">
+      <div className="bg-section py-8 flex flex-col lg:flex-row lg:gap-4 mt-4 lg:px-36 2xl:px-56 2xl:gap-20">
         <section className="bg-gradient-card-darkest relative text-textColor p-5 mx-4 rounded-2xl lg:w-[30rem] lg:h-[20rem] lg:mx-0">
           <h4 className="text-lg font-semibold uppercase pb-12 lg:pb-10 after:absolute after:top-24 lg:after:top-16 after:left-4 after:w-10 after:h-[5px] after:bg-secondary">
             Rachat de crédit hypothécaire
           </h4>
-          <p className="text-sm lg:text-base">
+          <p className="text-sm lg:text-base 2">
             Le rachat de crédits hypothécaire s’adresse exclusivement aux
             propriétaires. On désigne en effet ainsi une opération de
             regroupement de prêts garantie par l’hypothèque d’un bien
@@ -82,17 +82,17 @@ function CreditsTypes() {
             emprunt aux mensualités réduites sur une durée maximum de 35 ans.
           </p>
         </section>
-        <div className="flex pt-4 px-4">
+        <div className="flex pt-4 lg:pt-10">
           <FaAngleRight className="text-secondary text-lg mt-1 min-w-[1.5rem]" />
-          <p className="pl-2 lg:text-lg lg:w-[36.25rem]">
+          <p className="pl-2 lg:text-xl lg:w-[40rem]">
             Une mise en hypothèque exige le recours à un notaire. Par
             conséquent, contrairement au rachat de crédits à la consommation,
             une opération hypothécaire implique des frais de notaire.
           </p>
         </div>
       </div>
-      <div className="lg:flex lg:justify-between lg:mb-10">
-        <div className="lg:mt-40 lg:w-[30rem] lg:ml-40">
+      <div className="lg:flex lg:px-36  lg:justify-between lg:mb-10 2xl:px-56">
+        <div className="lg:mt-40 lg:w-[30rem]">
           <h4 className="px-4 pt-4 text-lg font-semibold uppercase">
             Pourquoi une garantie ?
           </h4>
@@ -109,10 +109,10 @@ function CreditsTypes() {
         <Image
           src={attention}
           alt="attention"
-          className="hidden lg:block lg:w-[25rem] lg:mr-40 lg:mt-36"
+          className="hidden lg:block lg:w-[25rem] lg:mt-36"
         />
       </div>
-    </>
+    </article>
   );
 }
 

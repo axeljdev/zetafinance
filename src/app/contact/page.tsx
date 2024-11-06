@@ -8,7 +8,7 @@ function page() {
     <>
       <main className="overflow-hidden">
         <Hero />
-        <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-10 lg:pb-8">
+        <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-10 lg:pb-8 lg:px-16">
           <Form />
           <Contact />
         </section>

@@ -45,6 +45,13 @@ function Drawer({ closeDrawer }: DrawerProps) {
             <Image src={logo} alt="logo" className="w-48 " />
           </Link>
         </div>
+        <li>
+          <Link href="/" onClick={closeDrawer}>
+            <p className="hover:border-b hover:border-secondary pb-1 text-lg">
+              Accueil
+            </p>
+          </Link>
+        </li>
         {/* Reste du contenu de la barre latérale */}
         <li className="group/button">
           <details
@@ -96,9 +103,9 @@ function Drawer({ closeDrawer }: DrawerProps) {
           </details>
         </li>
         <li>
-          <Link href="/" onClick={closeDrawer}>
+          <Link href="/etapes-et-delais" onClick={closeDrawer}>
             <p className="hover:border-b hover:border-secondary pb-1 text-lg">
-              Qui sommes-nous ?
+              Les étapes et délais
             </p>
           </Link>
         </li>

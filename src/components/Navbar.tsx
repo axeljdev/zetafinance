@@ -144,7 +144,7 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/etapes-et-delais"
                   className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor active:text-textColor rounded-full px-5"
                 >
                   Les étapes et délais

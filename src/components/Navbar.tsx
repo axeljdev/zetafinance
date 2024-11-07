@@ -91,7 +91,7 @@ function Navbar() {
               <li>
                 <details ref={detailsRef}>
                   <summary className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor rounded-full px-5">
-                    Regroupement de crédit
+                    Le regroupement de crédit
                   </summary>
                   <ul className="bg-primary text-textColor rounded-t-none w-full font-medium uppercase p-2">
                     <li>

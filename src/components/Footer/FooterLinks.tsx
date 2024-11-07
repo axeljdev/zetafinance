@@ -8,11 +8,11 @@ function FooterLinks() {
       <ul className="flex flex-col gap-2 uppercase font-semibold">
         <li className="flex items-center gap-2 hoverRed">
           <Image src={arrowRight} alt="arrow right" className="w-4 h-4" />
-          <Link href="/">Les étapes et les délais</Link>
+          <Link href="/etapes-et-delais">Les étapes et les délais</Link>
         </li>
         <li className="flex items-center gap-2 hoverRed">
           <Image src={arrowRight} alt="arrow right" className="w-4 h-4" />
-          <Link href="/">Justificatifs</Link>
+          <Link href="/regroupement-credit">Le regroupement de crédit</Link>
         </li>
         <li className="flex items-center gap-2 hoverRed">
           <Image src={arrowRight} alt="arrow right" className="w-4 h-4" />

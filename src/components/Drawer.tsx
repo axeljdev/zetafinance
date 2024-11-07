@@ -60,7 +60,7 @@ function Drawer({ closeDrawer }: DrawerProps) {
           >
             <summary>
               <p className="group-hover/button:border-b group-hover/button:border-secondary pb-1 text-lg">
-                Regroupement de crédit
+                Le regroupement de crédit
               </p>
             </summary>
             <ul>

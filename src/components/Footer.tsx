@@ -19,9 +19,9 @@ const FooterCTA = () => (
         <p className="text-base font-light pt-2">
           Gérez vos dépenses et augmentez votre épargne en quelques secondes
         </p>
-        <button className="rounded-full border my-6 border-textColor text-textColor hover:bg-textColor hover:text-background hover:text-primary transition-all duration-300 px-6 py-2">
+        <Link href="/" className="rounded-full border my-6 border-textColor text-textColor hover:bg-textColor hover:text-background hover:text-primary transition-all duration-300 px-6 py-2">
           En savoir plus
-        </button>
+        </Link>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@ const LegalLinks = () => (
     {['Mentions légales', 'Procédure RGPD'].map((text) => (
       <li key={text} className="flex items-center gap-2 hoverRed">
         <Image src={arrowRight} alt="arrow right" className="w-2 h-2" />
-        <Link href="/">{text}</Link>
+        <Link href={text === 'Mentions légales' ? '/mentions-legales' : '/rgpd'}>{text}</Link>
       </li>
     ))}
   </ul>

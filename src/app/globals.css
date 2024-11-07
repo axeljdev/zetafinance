@@ -44,6 +44,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.hero-section-rgpd {
+  background-image: url('../images/bg-rgpd.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .hero-section-et-delais {
   background-image: url('../images/bg-etapes-et-delais.png');
   background-size: cover;

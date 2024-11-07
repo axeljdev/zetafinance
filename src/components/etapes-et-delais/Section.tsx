@@ -8,7 +8,7 @@ type SectionProps = {
 export function Section({ section }: SectionProps) {
   return (
     <>
-      <h3 id={`etape-${section.step.toLowerCase()}`} className="text-xl lg:text-2xl font-bold uppercase lg:pb-10 pt-10">
+      <h3 id={`${section.step.toLowerCase()}`} className="text-xl lg:text-2xl font-bold uppercase lg:pb-10 pt-10 scroll-mt-32">
         <span className="text-secondary">{section.step}</span> : {section.title}
       </h3>
       {section.paragraphs.map((paragraph, index) => (

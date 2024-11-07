@@ -9,17 +9,24 @@ import FooterLinks from "./footer/FooterLinks";
 const FooterCTA = () => (
   <div className="relative flex lg:justify-end">
     <div className="w-4/5 hidden lg:block lg:absolute lg:left-0">
-      <Image src={background} alt="background" className="h-[21.25rem] w-full object-cover" />
+      <Image
+        src={background}
+        alt="background"
+        className="h-[21.25rem] w-full object-cover"
+      />
     </div>
     <div className="w-full lg:w-[33rem] xl:w-[36rem]">
-      <div className="bg-gradient-footer-lightest h-fit absolute uppercase p-4 left-0 w-full text-textColor clip-path-footer lg:relative lg:h-[21.25rem] lg:p-12 lg:flex lg:flex-col lg:pl-24 lg:justify-center lg:items-start lg:bg-gradient-footer-lightest-revert">
+      <div className="bg-gradient-footer-lightest h-fit absolute uppercase px-4 pt-4 pb-10 left-0 w-full text-textColor clip-path-footer lg:relative lg:h-[21.25rem] lg:flex lg:flex-col lg:pl-20 lg:pb-0 lg:justify-center lg:items-start lg:bg-gradient-footer-lightest-revert">
         <h2 className="text-xl font-semibold">
           Contrôlez vos dépenses et boostez votre épargne
         </h2>
-        <p className="text-base font-light pt-2">
+        <p className="text-base font-light pt-2 pb-8">
           Gérez vos dépenses et augmentez votre épargne en quelques secondes
         </p>
-        <Link href="/" className="rounded-full border my-6 border-textColor text-textColor hover:bg-textColor hover:text-background hover:text-primary transition-all duration-300 px-6 py-2">
+        <Link
+          href="/contact"
+          className="rounded-full border my-6 border-textColor text-textColor hover:bg-textColor hover:text-background hover:text-primary transition-all duration-300 px-6 py-2"
+        >
           En savoir plus
         </Link>
       </div>
@@ -29,10 +36,14 @@ const FooterCTA = () => (
 
 const LegalLinks = () => (
   <ul className="flex gap-2 lg:gap-10 pt-6 uppercase text-xs font-semibold w-full justify-center lg:pr-20">
-    {['Mentions légales', 'Procédure RGPD'].map((text) => (
+    {["Mentions légales", "Procédure RGPD"].map((text) => (
       <li key={text} className="flex items-center gap-2 hoverRed">
         <Image src={arrowRight} alt="arrow right" className="w-2 h-2" />
-        <Link href={text === 'Mentions légales' ? '/mentions-legales' : '/rgpd'}>{text}</Link>
+        <Link
+          href={text === "Mentions légales" ? "/mentions-legales" : "/rgpd"}
+        >
+          {text}
+        </Link>
       </li>
     ))}
   </ul>

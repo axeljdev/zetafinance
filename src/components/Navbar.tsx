@@ -14,15 +14,15 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.querySelector('header');
-      if (heroSection && pathname !== '/') {
+      const heroSection = document.querySelector("header");
+      if (heroSection && pathname !== "/") {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
         setIsScrolledPastHero(heroBottom < 0);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   const handleDrawerToggle = () => {
@@ -58,7 +58,9 @@ function Navbar() {
               htmlFor="my-drawer-3"
               aria-label="ouvrir la barre latérale"
               className={`btn btn-square btn-ghost hover:bg-secondary/75 hover:text-textColor transition-all duration-300 ${
-                pathname === '/' || isScrolledPastHero ? 'bg-gray-100/80' : 'bg-gray-100/20'
+                pathname === "/" || isScrolledPastHero
+                  ? "bg-gray-100/80"
+                  : "bg-gray-100/20"
               }`}
             >
               <svg
@@ -66,7 +68,9 @@ function Navbar() {
                 fill="none"
                 viewBox="0 0 24 24"
                 className={`inline-block h-6 w-6 stroke-current ${
-                  pathname === '/' || isScrolledPastHero ? 'stroke-black' : 'stroke-white'
+                  pathname === "/" || isScrolledPastHero
+                    ? "stroke-black"
+                    : "stroke-white"
                 }`}
               >
                 <path
@@ -98,7 +102,7 @@ function Navbar() {
                       <Link
                         onClick={closeDropdown}
                         className="hover:bg-gradient-button-light hover:text-textColor px-5"
-                        href="/regroupement-credit"
+                        href="/regroupement-credit#definition"
                       >
                         Définition
                       </Link>
@@ -107,7 +111,7 @@ function Navbar() {
                       <Link
                         onClick={closeDropdown}
                         className="hover:bg-gradient-button-light hover:text-textColor px-5"
-                        href="/regroupement-credit"
+                        href="/regroupement-credit#avantages"
                       >
                         Les avantages
                       </Link>
@@ -116,7 +120,7 @@ function Navbar() {
                       <Link
                         onClick={closeDropdown}
                         className="hover:bg-gradient-button-light hover:text-textColor px-5"
-                        href="/regroupement-credit"
+                        href="/regroupement-credit#avantages"
                       >
                         Quel crédit ?
                       </Link>
@@ -125,7 +129,7 @@ function Navbar() {
                       <Link
                         onClick={closeDropdown}
                         className="hover:bg-gradient-button-light hover:text-textColor px-5"
-                        href="/regroupement-credit"
+                        href="/regroupement-credit#situation"
                       >
                         Dans quel situation ?
                       </Link>
@@ -134,7 +138,7 @@ function Navbar() {
                       <Link
                         onClick={closeDropdown}
                         className="hover:bg-gradient-button-light hover:text-textColor px-5"
-                        href="/regroupement-credit"
+                        href="/regroupement-credit#types-rachat"
                       >
                         2 types de rachat
                       </Link>

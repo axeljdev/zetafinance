@@ -19,7 +19,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <Simulator />
-      <article className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 hero-section 2xl:px-64">
+      <article className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 hero-section 2xl:px-96">
         <h2 className="text-2xl font-semibold uppercase py-5">
           <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits

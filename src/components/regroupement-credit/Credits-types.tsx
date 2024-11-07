@@ -10,7 +10,7 @@ const list = [
 
 function CreditsTypes() {
   return (
-    <article>
+    <article id="types-rachat">
       <h3 className="px-4 pt-4 text-xl font-semibold uppercase pb-10 lg:text-2xl lg:px-36 2xl:px-56">
         2 types de <span className="text-secondary">rachat de crédits</span>
       </h3>

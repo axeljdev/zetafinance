@@ -64,41 +64,41 @@ function Drawer({ closeDrawer }: DrawerProps) {
               </p>
             </summary>
             <ul>
-                <li>
-                  <Link href="/regroupement-credit" onClick={closeDrawer}>
-                    <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
-                      Définition
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/regroupement-credit" onClick={closeDrawer}>
-                    <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
-                      Les avantages
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/regroupement-credit" onClick={closeDrawer}>
-                    <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
-                      Quel crédit ?
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/regroupement-credit" onClick={closeDrawer}>
-                    <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
-                      Dans quelle situation ?
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/regroupement-credit" onClick={closeDrawer}>
-                    <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
-                      2 types de rachat
-                    </p>
-                  </Link>
-                </li>
+              <li>
+                <Link href="/regroupement-credit" onClick={closeDrawer}>
+                  <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
+                    Définition
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/regroupement-credit" onClick={closeDrawer}>
+                  <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
+                    Les avantages
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/regroupement-credit" onClick={closeDrawer}>
+                  <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
+                    Quel crédit ?
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/regroupement-credit" onClick={closeDrawer}>
+                  <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
+                    Dans quelle situation ?
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/regroupement-credit" onClick={closeDrawer}>
+                  <p className="hover:border-b hover:border-secondary text-textColor pb-1 text-base">
+                    2 types de rachat
+                  </p>
+                </Link>
+              </li>
             </ul>
           </details>
         </li>
@@ -121,4 +121,4 @@ function Drawer({ closeDrawer }: DrawerProps) {
   );
 }
 
-export default Drawer; 
+export default Drawer;

@@ -66,7 +66,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <aside className="flex items-center justify-between xl:gap-10 mt-5 xl:mt-10">
+        <aside className="flex items-center justify-between lg:gap-10 mt-5 xl:mt-10">
           <StatisticsCard
             icon={satisfaction}
             statistic="1K"

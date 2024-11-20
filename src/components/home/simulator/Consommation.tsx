@@ -151,7 +151,11 @@ function Consommation() {
         >
           Passez à l&apos;étape suivante
         </button>
-        <Modal selectedType={selectedType} revenu={revenu} loyer={loyer} />
+        <Modal
+          selectedType={selectedType}
+          revenu={revenu ?? 0}
+          loyer={loyer ?? 0}
+        />
       </form>
     </>
   );

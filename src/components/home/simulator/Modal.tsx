@@ -2,39 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import Credits from "./Credits";
 import Contact from "./Contact";
 import AutresDettes from "./AutresDettes";
-
-interface ModalProps {
-  selectedType: string;
-  revenu: number | undefined;
-  loyer: number | undefined;
-}
-
-export type CustomFormData = {
-  selectedType: string;
-  revenu: number | undefined;
-  loyer: number | undefined;
-  nombreCredits: number;
-  mensualitesImmo: number;
-  capitalRestantImmo: number;
-  dureeRestanteImmo: number;
-  mensualitesConso: number;
-  capitalRestantConso: number;
-  dureeRestanteConso: number;
-  totalDettes: number;
-  dureeRestante: number;
-  tresorerieSouhaitee: number;
-  dureeSouhaitee: number;
-  nom: string;
-  prenom: string;
-  telephone: string;
-  email: string;
-  isSubmitted: boolean;
-};
+import { ModalProps, CustomFormData } from "@/types/simulator";
 
 const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   const [showCredits, setShowCredits] = useState(true);
   const [showEmail, setShowEmail] = useState(false);
   const checkboxRef = useRef<HTMLInputElement>(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const [formState, setFormState] = useState<CustomFormData>({
     selectedType,
@@ -59,6 +33,15 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   });
 
   useEffect(() => {
+    setFormState((prevState) => ({
+      ...prevState,
+      selectedType,
+      revenu,
+      loyer,
+    }));
+  }, [selectedType, revenu, loyer]);
+
+  useEffect(() => {
     const checkbox = checkboxRef.current;
     const handleCheckboxChange = () => {
       if (checkbox && !checkbox.checked) {
@@ -76,21 +59,31 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
 
   const handleSubmit = async () => {
     try {
+      const dataToSend = {
+        ...formState,
+        revenu: formState.revenu || 0,
+        loyer: formState.loyer || 0,
+        selectedType: formState.selectedType,
+      };
+
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formState),
+        body: JSON.stringify(dataToSend),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        console.log("Email envoyé avec succès");
+        console.log("Succès:", data);
+        setShowConfirmation(true);
       } else {
-        console.error("Erreur lors de l'envoi de l'email");
+        console.error("Erreur serveur:", data);
       }
     } catch (error) {
-      console.error("Erreur réseau :", error);
+      console.error("Erreur réseau:", error);
     }
   };
 
@@ -111,16 +104,30 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
             : {showEmail ? "Contact" : "Vos crédits"}
           </h3>
           <div className="flex flex-col gap-4">
-            {showCredits ? (
+            {showConfirmation ? (
+              <>
+                <div className="text-center">
+                  Merci ! Vous allez bientôt recevoir un email ou un appel avec
+                  votre simulation.
+                </div>
+                <button
+                  className="btn mt-4 border-none bg-gradient-button-light uppercase text-textColor rounded-full bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
+                  onClick={() => {
+                    document.getElementById("my_modal_7")?.click();
+                  }}
+                >
+                  Fermer
+                </button>
+              </>
+            ) : showCredits ? (
               <Credits
                 onNext={() => setShowCredits(false)}
                 setFormData={setFormState}
               />
             ) : showEmail ? (
               <Contact
-                onFinish={() => {
-                  setShowEmail(false);
-                  handleSubmit();
+                onFinish={async () => {
+                  await handleSubmit();
                 }}
                 setFormData={setFormState}
               />

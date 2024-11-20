@@ -1,27 +1,37 @@
-interface InputFieldProps {
-  label: string;
-  placeholder: string;
-  unit: string;
-}
+import { InputFieldProps } from "@/types/simulator";
 
 const InputField: React.FC<InputFieldProps> = ({
   label,
+  name,
+  value,
+  onChange,
+  type = "text",
+  required = false,
   placeholder,
-  unit,
-}) => (
-  <div className="flex items-center justify-around">
-    <p>{label}</p>
-    <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
+  min,
+  max,
+  step,
+  className = "",
+}) => {
+  return (
+    <div className="form-control w-full">
+      <label className="label">
+        <span className="label-text">{label}</span>
+      </label>
       <input
-        type="number"
-        min="0"
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className={`input input-bordered w-full ${className}`}
+        required={required}
         placeholder={placeholder}
-        className="grow w-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
-        required
+        min={min}
+        max={max}
+        step={step}
       />
-      {unit}
-    </label>
-  </div>
-);
+    </div>
+  );
+};
 
 export default InputField;

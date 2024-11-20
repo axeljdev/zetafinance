@@ -1,10 +1,5 @@
 import { useState } from "react";
-import type { CustomFormData } from "./Modal";
-
-interface CreditsProps {
-  onNext: () => void;
-  setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
-}
+import { CreditsProps, CustomFormData } from "@/types/simulator";
 
 const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
   const [nombreCredits, setNombreCredits] = useState(0);

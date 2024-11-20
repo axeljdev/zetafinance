@@ -1,13 +1,7 @@
 import { useState } from "react";
-import { CustomFormData } from "./Modal";
+import { AutresDettesProps } from "@/types/simulator";
 
-function AutresDettes({
-  onNext,
-  setFormData,
-}: {
-  onNext: () => void;
-  setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
-}) {
+const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
   const [totalDettes, setTotalDettes] = useState(0);
   const [dureeRestante, setDureeRestante] = useState(0);
   const [tresorerieSouhaitee, setTresorerieSouhaitee] = useState(0);
@@ -96,6 +90,6 @@ function AutresDettes({
       </button>
     </>
   );
-}
+};
 
 export default AutresDettes;

@@ -51,7 +51,12 @@ export interface AutresDettesProps {
 }
 
 export interface ContactProps {
-  onFinish: () => void;
+  onFinish: (contactData: {
+    nom: string;
+    prenom: string;
+    telephone: string;
+    email: string;
+  }) => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
 }
 

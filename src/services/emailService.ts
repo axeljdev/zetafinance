@@ -1,7 +1,10 @@
 import nodemailer from "nodemailer";
-import { CustomFormData } from "@/types/simulator";
 import { emailConfig, EMAIL_SENDER } from "@/config/email.config";
-import { formatSimulationEmail } from "@/utils/emailTemplates";
+import {
+  formatSimulationEmail,
+  formatContactEmail,
+} from "@/utils/emailTemplates";
+import { CustomFormData } from "@/types/simulator";
 
 export class EmailService {
   private transporter: nodemailer.Transporter;
@@ -10,15 +13,32 @@ export class EmailService {
     this.transporter = nodemailer.createTransport(emailConfig);
   }
 
-  async sendSimulationEmail(formData: CustomFormData): Promise<string> {
+  async sendEmail(formData: unknown, template: string): Promise<string> {
     try {
       await this.transporter.verify();
+
+      const text =
+        template === "contact"
+          ? formatContactEmail(
+              formData as {
+                name: string;
+                email: string;
+                phone: string;
+                message: string;
+              }
+            )
+          : formatSimulationEmail(formData as CustomFormData);
 
       const mailOptions = {
         from: EMAIL_SENDER,
         to: process.env.EMAIL_USER,
-        subject: `Simulateur : Demande d'étude ${formData.nom} ${formData.prenom}`,
-        text: formatSimulationEmail(formData),
+        subject:
+          template === "contact"
+            ? `Mail de contact de ${(formData as { name: string }).name}`
+            : `Simulateur : Demande d'étude ${
+                (formData as CustomFormData).nom
+              } ${(formData as CustomFormData).prenom}`,
+        text,
       };
 
       const info = await this.transporter.sendMail(mailOptions);

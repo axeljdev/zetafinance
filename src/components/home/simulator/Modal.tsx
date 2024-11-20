@@ -57,27 +57,42 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     };
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (contactData?: {
+    nom: string;
+    prenom: string;
+    telephone: string;
+    email: string;
+  }) => {
     try {
       const dataToSend = {
         ...formState,
-        revenu: formState.revenu || 0,
-        loyer: formState.loyer || 0,
-        selectedType: formState.selectedType,
+        revenu: formState.revenu || revenu || 0,
+        loyer: formState.loyer || loyer || 0,
+        selectedType: formState.selectedType || selectedType,
+        ...(contactData && { ...contactData }),
       };
+
+      if (
+        !dataToSend.nom ||
+        !dataToSend.prenom ||
+        !dataToSend.telephone ||
+        !dataToSend.email
+      ) {
+        console.error("Données de contact manquantes:", dataToSend);
+        return;
+      }
 
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(dataToSend),
+        body: JSON.stringify({ formData: dataToSend, template: "simulation" }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        console.log("Succès:", data);
         setShowConfirmation(true);
       } else {
         console.error("Erreur serveur:", data);
@@ -126,8 +141,8 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
               />
             ) : showEmail ? (
               <Contact
-                onFinish={async () => {
-                  await handleSubmit();
+                onFinish={async (contactData) => {
+                  await handleSubmit(contactData);
                 }}
                 setFormData={setFormState}
               />

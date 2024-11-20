@@ -82,15 +82,21 @@ export const formatSimulationEmail = (data: CustomFormData): string => {
     },
   ];
 
-  // Ajout de logs pour déboguer
-  console.log("Données reçues:", {
-    nom: data.nom,
-    prenom: data.prenom,
-    telephone: data.telephone,
-    email: data.email,
-  });
-
   return sections
     .map((section) => `${section.title}\n${section.content.trim()}`)
     .join("\n\n");
+};
+
+export const formatContactEmail = (data: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}): string => {
+  return `
+    Nom: ${data.name}
+    Email: ${data.email}
+    Téléphone: ${data.phone}
+    Message: ${data.message}
+  `;
 };

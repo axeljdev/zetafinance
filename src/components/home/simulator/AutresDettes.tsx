@@ -1,21 +1,39 @@
 import { useState } from "react";
 import { AutresDettesProps } from "@/types/simulator";
+import { autresDettesSchema } from "@/schemas/simulatorSchema";
+import { useNotificationStore } from "@/stores/notificationStore";
 
 const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
   const [totalDettes, setTotalDettes] = useState(0);
   const [dureeRestante, setDureeRestante] = useState(0);
   const [tresorerieSouhaitee, setTresorerieSouhaitee] = useState(0);
   const [dureeSouhaitee, setDureeSouhaitee] = useState(0);
+  const { addNotification } = useNotificationStore();
 
   const handleNext = () => {
-    setFormData((prevData) => ({
-      ...prevData,
-      totalDettes,
-      dureeRestante,
-      tresorerieSouhaitee,
-      dureeSouhaitee,
-    }));
-    onNext();
+    try {
+      const formData = {
+        totalDettes,
+        dureeRestante,
+        tresorerieSouhaitee,
+        dureeSouhaitee,
+      };
+
+      autresDettesSchema.parse(formData);
+
+      setFormData((prevData) => ({
+        ...prevData,
+        ...formData,
+      }));
+      onNext();
+    } catch (error) {
+      if (error instanceof Error) {
+        addNotification({
+          message: error.message,
+          type: "error",
+        });
+      }
+    }
   };
 
   return (

@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
+@import "../images/background-hero.svg";
+@import "../images/bg-hero-dark.svg";
+@import "../images/bg-regroupement-credit.png";
+@import "../images/bg-rgpd.png";
+@import "../images/bg-etapes-et-delais.png";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,7 +27,7 @@ body {
 }
 
 .hero-section {
-  background-image: url("../images/background-hero.svg");
+  background-image: var(--background-hero);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,28 +42,28 @@ body {
 }
 
 .hero-section-dark {
-  background-image: url("../images/bg-hero-dark.svg");
+  background-image: var(--bg-hero-dark);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero-section-regroupement {
-  background-image: url("../images/bg-regroupement-credit.png");
+  background-image: var(--bg-regroupement);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero-section-rgpd {
-  background-image: url("../images/bg-rgpd.png");
+  background-image: var(--bg-rgpd);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero-section-et-delais {
-  background-image: url("../images/bg-etapes-et-delais.png");
+  background-image: var(--bg-etapes-et-delais);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

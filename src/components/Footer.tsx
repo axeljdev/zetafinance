@@ -3,8 +3,8 @@ import logo from "@/images/logo-zeta-white.svg";
 import Link from "next/link";
 import arrowRight from "@/images/zeta-arrow.svg";
 import background from "@/images/zeta-footer-dsktp.png";
-import ContactInfo from "@/components/footer/ContactInfo";
-import FooterLinks from "@/components/footer/FooterLinks";
+import ContactInfo from "../components/footer/ContactInfo";
+import FooterLinks from "../components/footer/FooterLinks";
 
 const FooterCTA = () => (
   <div className="relative flex lg:justify-end">

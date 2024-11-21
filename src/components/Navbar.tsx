@@ -149,7 +149,7 @@ function Navbar() {
               <li>
                 <Link
                   href="/etapes-et-delais"
-                  className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor active:text-textColor rounded-full px-5"
+                  className="font-medium uppercase hover:bg-gradient-button-light hover:text-textColor active:text-textColor rounded-full px-5 button-home"
                 >
                   Les étapes et délais
                 </Link>
@@ -157,10 +157,10 @@ function Navbar() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-md bg-gradient-button-light uppercase text-textColor rounded-full px-10 group/button relative inline-flex items-center justify-center overflow-hidden bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
+                  className="button-home text-md bg-gradient-button-light uppercase text-textColor rounded-full px-10 group/button relative inline-flex items-center justify-center overflow-hidden bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
                 >
                   Contact{" "}
-                  <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                  <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)] ">
                     <div className="relative h-full w-10 bg-white/30"></div>
                   </div>
                 </Link>

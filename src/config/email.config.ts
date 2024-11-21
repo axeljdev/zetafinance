@@ -1,7 +1,7 @@
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 export const emailConfig: SMTPTransport.Options = {
-  host: "smtp.gmail.com",
+  host: "smtp.ionos.fr",
   port: 587,
   secure: false,
   auth: {

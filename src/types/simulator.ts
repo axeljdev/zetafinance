@@ -19,8 +19,6 @@ export type CustomFormData = {
   dureeRestante: number;
   tresorerieSouhaitee: number;
   dureeSouhaitee: number;
-  nom: string;
-  prenom: string;
   telephone: string;
   email: string;
   isSubmitted: boolean;
@@ -51,12 +49,7 @@ export interface AutresDettesProps {
 }
 
 export interface ContactProps {
-  onFinish: (contactData: {
-    nom: string;
-    prenom: string;
-    telephone: string;
-    email: string;
-  }) => void;
+  onFinish: (contactData: { telephone: string; email: string }) => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
 }
 

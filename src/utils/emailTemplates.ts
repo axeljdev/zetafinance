@@ -2,7 +2,7 @@ import { CustomFormData } from "@/types/simulator";
 
 export const formatSimulationEmail = (data: CustomFormData): string => {
   // Vérification des données obligatoires
-  if (!data.nom || !data.prenom || !data.telephone || !data.email) {
+  if (!data.telephone || !data.email) {
     console.warn("Données de contact manquantes:", { data });
   }
 
@@ -10,8 +10,6 @@ export const formatSimulationEmail = (data: CustomFormData): string => {
     {
       title: "Informations personnelles",
       content: `
-        Nom: ${data.nom || "Non renseigné"}
-        Prénom: ${data.prenom || "Non renseigné"}
         Téléphone: ${data.telephone || "Non renseigné"}
         Email: ${data.email || "Non renseigné"}
         Type de foyer: ${data.selectedType || "Non renseigné"}

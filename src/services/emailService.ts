@@ -36,8 +36,8 @@ export class EmailService {
           template === "contact"
             ? `Mail de contact de ${(formData as { name: string }).name}`
             : `Simulateur : Demande d'étude ${
-                (formData as CustomFormData).nom
-              } ${(formData as CustomFormData).prenom}`,
+                (formData as CustomFormData).email
+              }`,
         text,
       };
 

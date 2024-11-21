@@ -25,8 +25,6 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     dureeRestante: 0,
     tresorerieSouhaitee: 0,
     dureeSouhaitee: 0,
-    nom: "",
-    prenom: "",
     telephone: "",
     email: "",
     isSubmitted: false,
@@ -58,9 +56,7 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   }, []);
 
   const handleSubmit = async (contactData?: {
-    nom: string;
-    prenom: string;
-    telephone: string;
+    telephone?: string;
     email: string;
   }) => {
     try {
@@ -72,13 +68,8 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
         ...(contactData && { ...contactData }),
       };
 
-      if (
-        !dataToSend.nom ||
-        !dataToSend.prenom ||
-        !dataToSend.telephone ||
-        !dataToSend.email
-      ) {
-        console.error("Données de contact manquantes:", dataToSend);
+      if (!dataToSend.email) {
+        console.error("Email manquant:", dataToSend);
         return;
       }
 

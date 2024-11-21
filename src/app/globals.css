@@ -33,7 +33,7 @@ body {
 }
 
 .bg-section {
-  background-image: url("../images/zeta-bg-section.svg");
+  background-image: var(--background-hero);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

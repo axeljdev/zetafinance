@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-@import "../images/background-hero.svg";
-@import "../images/bg-hero-dark.svg";
-@import "../images/bg-regroupement-credit.png";
-@import "../images/bg-rgpd.png";
-@import "../images/bg-etapes-et-delais.png";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,6 +7,11 @@
 :root {
   --text-color: #ffffff;
   --foreground: #171717;
+  --background-hero: var(--bg-hero-url);
+  --bg-hero-dark: var(--bg-hero-dark-url);
+  --bg-regroupement: var(--bg-regroupement-url);
+  --bg-rgpd: var(--bg-rgpd-url);
+  --bg-etapes-delais: var(--bg-etapes-delais-url);
   --gradient-text: linear-gradient(
     350deg,
     rgba(233, 18, 12, 1) 0%,
@@ -63,7 +62,7 @@ body {
 }
 
 .hero-section-et-delais {
-  background-image: var(--bg-etapes-et-delais);
+  background-image: var(--bg-etapes-delais);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

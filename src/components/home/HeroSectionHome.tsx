@@ -1,10 +1,21 @@
 import Image from "next/image";
 import logo from "@/images/logo-zeta-finance-01.svg";
 import Link from "next/link";
+import { backgrounds } from "@/app/constants/backgrounds";
 
 function HeroSection() {
+  const style = {
+    backgroundImage: backgrounds.hero,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
-    <header className="hero-section flex flex-col items-center pt-10 lg:pt-40 lg:pb-24 pb-10">
+    <header
+      style={style}
+      className="flex flex-col items-center pt-10 lg:pt-40 lg:pb-24 pb-10"
+    >
       <div className="flex flex-col items-center justify-center">
         <Image
           src={logo}

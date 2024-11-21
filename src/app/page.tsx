@@ -13,13 +13,24 @@ import mensualitespng from "@/images/mensualites.png";
 import RoleList from "@/components/home/info-section/RoleList";
 import StatisticsCard from "@/components/home/info-section/StatisticsCard";
 import DiagramSection from "@/components/home/info-section/DiagramSection";
+import { backgrounds } from "@/app/constants/backgrounds";
 
 export default function Home() {
+  const style = {
+    backgroundImage: backgrounds.hero,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <main>
       <HeroSection />
       <Simulator />
-      <article className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 hero-section 2xl:px-96">
+      <article
+        style={style}
+        className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 2xl:px-96"
+      >
         <h2 className="text-2xl font-semibold uppercase py-5">
           <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits
@@ -86,6 +97,8 @@ export default function Home() {
             image={mensualitespng}
           />
         </aside>
+      </article>
+      <div className="p-4 xl:px-52 flex flex-col pb-10 2xl:px-96">
         <h2 className="text-xl font-semibold uppercase py-5 lg:mt-10 lg:text-2xl">
           Objectif : <span className="text-secondary">réduire</span> ses
           mensualités
@@ -97,7 +110,7 @@ export default function Home() {
           <RoleList />
           <DiagramSection before={before} after={after} />
         </aside>
-      </article>
+      </div>
     </main>
   );
 }

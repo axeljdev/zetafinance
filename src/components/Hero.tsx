@@ -5,7 +5,8 @@ import { FaAngleRight } from "react-icons/fa6";
 import logo from "@/images/logo-zeta-finance-white-bg.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { backgrounds } from "@/app/constants/backgrounds";
+import bgEtapesDelais from "@/images/bg-etapes-et-delais.png";
+import bgRegroupementCredit from "@/images/bg-regroupement-credit.png";
 
 function Hero({ title, bg }: { title: string; bg: string }) {
   const pathname = usePathname();
@@ -17,8 +18,21 @@ function Hero({ title, bg }: { title: string; bg: string }) {
       ? "Les étapes et délais"
       : pageName.charAt(0).toUpperCase() + pageName.slice(1);
 
+  console.log(bg);
+
+  const getBackgroundImage = (bgType: string) => {
+    switch (bgType) {
+      case "hero-section-regroupement":
+        return bgRegroupementCredit.src;
+      case "hero-section-etapes-et-delais":
+        return bgEtapesDelais.src;
+      default:
+        return bgEtapesDelais.src;
+    }
+  };
+
   const style = {
-    backgroundImage: backgrounds[bg as keyof typeof backgrounds],
+    backgroundImage: `url(${getBackgroundImage(bg)})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

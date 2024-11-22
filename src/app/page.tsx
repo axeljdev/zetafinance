@@ -29,7 +29,7 @@ export default function Home() {
       <Simulator />
       <article
         style={style}
-        className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 2xl:px-96"
+        className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 2xl:px-96 3xl:px-[30rem]"
       >
         <h2 className="text-2xl font-semibold uppercase py-5">
           <span className="text-secondary">Zeta</span> Finance, votre

@@ -64,9 +64,9 @@ export default function Slider() {
         <SwiperSlide>
           <Cards
             number="05"
-            title="Une offre de regroupement de crédits aux meilleures condiitons"
+            title="Les meilleures conditions pour vos crédits"
             items1="Rechercher pour vous les offres bancaires les plus avantageuses"
-            items2="Bénéficier du meilleur taux, pour garder un niveau d’endettement acceptable pour votre foyer"
+            items2="Bénéficier du meilleur taux et des meilleures conditions"
             items3="Simplifier toutes vos démarches"
           />
         </SwiperSlide>

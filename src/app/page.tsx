@@ -106,7 +106,7 @@ export default function Home() {
         <p className="uppercase lg:text-xl relative pb-6 after:absolute after:top-9 after:left-0 after:w-10 after:h-[5px] after:bg-secondary">
           Pour qui ?
         </p>
-        <aside className="flex flex-col lg:flex-row gap-2 bg-gradient-button-dark rounded-xl p-4 lg:mt-5 lg:p-10">
+        <aside className="flex flex-col lg:flex-row gap-2 bg-gradient-button-dark rounded-xl p-4 lg:mt-5 lg:p-10 3xl:p-20">
           <RoleList />
           <DiagramSection before={before} after={after} />
         </aside>

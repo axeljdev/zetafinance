@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Lato } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Zeta Finance",
@@ -17,15 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <head>
-        <link
-          rel="preload"
-          href="/_next/static/css/79f796cdfeef24e5.css"
-          as="style"
-          crossOrigin="anonymous"
-        />
-      </head>
+    <html lang="fr" className={lato.className}>
       <body suppressHydrationWarning>
         <Navbar />
         {children}

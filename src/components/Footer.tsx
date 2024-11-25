@@ -7,7 +7,7 @@ import ContactInfo from "./ContactInfo";
 import FooterLinks from "./FooterLinks";
 
 const FooterCTA = () => (
-  <div className="relative flex lg:justify-end">
+  <div className="relative flex lg:justify-end mt-10">
     <div className="w-4/5 hidden lg:block lg:absolute lg:left-0">
       <Image
         src={background}

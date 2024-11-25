@@ -1,4 +1,3 @@
-
 import RoleItem from "./RoleItem";
 
 const roles = [
@@ -9,7 +8,8 @@ const roles = [
   "Retraité",
   "CDI/CDD/INTERIM",
   "Fonctionnaire",
-  "Artisan, commerçant",
+  "Artisan",
+  "Commerçant",
 ];
 
 export default function RoleList() {
@@ -27,4 +27,4 @@ export default function RoleList() {
       </ul>
     </div>
   );
-} 
+}

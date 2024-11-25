@@ -4,7 +4,7 @@ function Definition() {
       id="definition"
       className="bg-gradient-card-darkest relative text-textColor p-5 lg:px-36 2xl:px-56 lg:py-10"
     >
-      <h2 className="text-2xl font-semibold uppercase pb-10 after:absolute after:top-24 lg:after:top-20 after:left-4 lg:after:left-36 xl:after:left-56 after:w-10 after:h-[5px] after:bg-secondary">
+      <h2 className="text-2xl font-semibold uppercase pb-10 after:absolute after:top-32 xs:after:top-24 lg:after:top-20 after:left-4 lg:after:left-36 xl:after:left-56 after:w-10 after:h-[5px] after:bg-secondary">
         Qu&apos;est-ce que le regroupement de crédit ?
       </h2>
       <p>

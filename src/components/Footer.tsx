@@ -7,7 +7,7 @@ import ContactInfo from "./ContactInfo";
 import FooterLinks from "./FooterLinks";
 
 const FooterCTA = () => (
-  <div className="relative flex lg:justify-end mt-10">
+  <div className="relative flex lg:justify-end animate-fade-down animate-ease-in-out">
     <div className="w-4/5 hidden lg:block lg:absolute lg:left-0">
       <Image
         src={background}
@@ -63,7 +63,7 @@ function Footer() {
   return (
     <footer>
       <FooterCTA />
-      <div className="bg-gradient-card-darkest text-textColor p-6 pt-64 lg:pt-10 flex flex-col justify-center items-center lg:px-60 font-semibold">
+      <div className="bg-gradient-card-darkest text-textColor p-6 pt-64 lg:pt-10 flex flex-col justify-center items-center lg:px-60 font-semibold animate-fade-down animate-ease-in-out">
         <MainContent />
         <LegalLinks />
       </div>

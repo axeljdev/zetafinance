@@ -50,7 +50,7 @@ function Navbar() {
         checked={isDrawerOpen}
         onChange={handleDrawerToggle}
       />
-      <div className="drawer-content bg-transparent fixed z-10 top-0 left-0 right-0 flex flex-col ">
+      <div className="drawer-content bg-transparent fixed z-10 top-0 left-0 right-0 flex flex-col animate-fade-down animate-ease-in-out">
         {/* Navbar */}
         <div className="navbar justify-between lg:text-textColor lg:bg-primary w-full lg:w-4/5 mx-auto rounded-full lg:mt-5 lg:shadow-custom">
           <div className="flex-none lg:hidden">

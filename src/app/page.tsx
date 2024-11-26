@@ -29,14 +29,14 @@ export default function Home() {
       <Simulator />
       <article
         style={style}
-        className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 2xl:px-96 3xl:px-[30rem]"
+        className="p-4 xl:px-52 lg:mt-12 flex flex-col pb-10 2xl:px-96 3xl:px-[30rem] "
       >
-        <h2 className="text-2xl font-semibold uppercase py-5">
+        <h2 className="text-2xl font-semibold uppercase py-5 animate-fade-down animate-ease-in-out">
           <span className="text-secondary">Zeta</span> Finance, votre
           regroupement de crédits
         </h2>
-        <div className="flex flex-col lg:flex-row gap-4">
-          <aside className="flex flex-col bg-gradient-card-darkest lg:h-fit lg:w-1/2 rounded-xl p-4 text-textColor space-y-4">
+        <div className="flex flex-col lg:flex-row gap-4 animate-fade-down animate-ease-in-out">
+          <aside className="flex flex-col bg-gradient-card-darkest lg:h-fit lg:w-1/2 rounded-xl p-4 text-textColor space-y-4 animate-fade-down animate-ease-in-out">
             <h3 className="text-lg uppercase font-semibold relative pb-5 after:absolute after:top-9 after:left-0 after:w-10 after:h-[5px] after:bg-secondary">
               Qui sommes-nous ?
             </h3>
@@ -52,7 +52,7 @@ export default function Home() {
             </p>
           </aside>
           <div className="divider hidden divider-horizontal before:bg-secondary before:w-[1px] after:bg-secondary after:w-[1px] lg:flex"></div>
-          <div className="flex flex-col gap-4 lg:w-1/2">
+          <div className="flex flex-col gap-4 lg:w-1/2 animate-fade-down animate-ease-in-out">
             <div className="flex items-baseline gap-2 pt-5 lg:pt-0">
               <Image src={arrow} alt="" />
               <p className="uppercase">Un interlocuteur unique à vos cotés</p>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <aside className="flex items-center justify-between lg:gap-10 mt-5 xl:mt-10">
+        <aside className="flex items-center justify-between lg:gap-10 mt-5 xl:mt-10 animate-fade-down animate-ease-in-out">
           <StatisticsCard
             icon={satisfaction}
             statistic="1K"
@@ -98,7 +98,7 @@ export default function Home() {
           />
         </aside>
       </article>
-      <div className="p-4 xl:px-52 flex flex-col pb-10 2xl:px-96">
+      <div className="p-4 xl:px-52 flex flex-col pb-10 2xl:px-96 3xl:px-[30rem] animate-fade-down animate-ease-in-out">
         <h2 className="text-xl font-semibold uppercase py-5 lg:mt-10 lg:text-2xl">
           Objectif : <span className="text-secondary">réduire</span> ses
           mensualités
@@ -106,7 +106,7 @@ export default function Home() {
         <p className="uppercase lg:text-xl relative pb-6 after:absolute after:top-9 after:left-0 after:w-10 after:h-[5px] after:bg-secondary">
           Pour qui ?
         </p>
-        <aside className="flex flex-col lg:flex-row gap-2 bg-gradient-button-dark rounded-xl p-4 lg:mt-5 lg:p-10 3xl:p-20">
+        <aside className="flex flex-col lg:flex-row gap-2 bg-gradient-button-dark rounded-xl p-4 mb-10 lg:mt-5 lg:p-10 3xl:p-20">
           <RoleList />
           <DiagramSection before={before} after={after} />
         </aside>

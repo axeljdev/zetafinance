@@ -12,7 +12,7 @@ function page() {
       <Definition />
       <div
         id="avantages"
-        className="flex flex-col lg:flex-row lg:px-32 2xl:px-52 lg:py-10"
+        className="flex flex-col lg:flex-row lg:px-32 2xl:px-52 lg:py-10 animate-fade-down animate-ease-in-out"
       >
         <Bento />
         <div className="divider divider-horizontal before:bg-secondary before:w-[5px] after:bg-secondary after:w-[5px]"></div>

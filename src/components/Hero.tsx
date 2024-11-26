@@ -48,12 +48,12 @@ function Hero({ title, bg }: { title: string; bg: string }) {
         alt="logo"
         width={150}
         height={73}
-        className="w-40 lg:w-72 pb-10"
+        className="w-40 lg:w-72 pb-10 animate-fade-down animate-ease-in-out"
       />
-      <h1 className="text-2xl lg:text-4xl pb-5 font-bold text-center uppercase lg:pb-10">
+      <h1 className="text-2xl lg:text-4xl pb-5 font-bold text-center uppercase lg:pb-10 animate-fade-down animate-ease-in-out">
         {title}
       </h1>
-      <ul className="flex items-center justify-center lg:text-xl gap-2 ">
+      <ul className="flex items-center justify-center lg:text-xl gap-2 animate-fade-down animate-ease-in-out">
         <li>
           <Link
             href="/"

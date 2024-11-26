@@ -7,7 +7,7 @@ function Page() {
         title="Mentions Légales et Politique de Confidentialité"
         bg="hero-section-rgpd"
       />
-      <article className="container mx-auto px-4 py-8 max-w-4xl prose prose-slate">
+      <article className="container mx-auto px-4 py-8 max-w-4xl prose prose-slate animate-fade-down animate-ease-in-out">
         <h1 className="text-3xl font-bold mb-4">
           Mentions Légales et Politique de Confidentialité
         </h1>

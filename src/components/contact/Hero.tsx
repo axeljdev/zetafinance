@@ -5,7 +5,7 @@ import { FaAngleRight } from "react-icons/fa6";
 import logo from "@/images/logo-zeta-finance-white-bg.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import bgContact from "@/images/bg-hero-dark.svg";
+import bgContact from "@/images/bg-hero-dark.jpeg";
 function Hero() {
   const pathname = usePathname();
   const pageName = pathname.split("/").pop() || "Accueil";

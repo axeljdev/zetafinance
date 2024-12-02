@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CreditsProps, CustomFormData } from "@/types/simulator";
+import { useCalculations } from "@/hooks/useCalculations";
 
 const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
   const [nombreCredits, setNombreCredits] = useState(0);
@@ -10,17 +11,30 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
   const [capitalRestantConso, setCapitalRestantConso] = useState(0);
   const [dureeRestanteConso, setDureeRestanteConso] = useState(0);
 
+  const { calculer } = useCalculations();
+
   const handleNext = () => {
-    setFormData((prevData: CustomFormData) => ({
-      ...prevData,
-      nombreCredits,
-      mensualitesImmo,
-      capitalRestantImmo,
-      dureeRestanteImmo,
-      mensualitesConso,
-      capitalRestantConso,
-      dureeRestanteConso,
-    }));
+    setFormData((prevData: CustomFormData) => {
+      const updatedData = {
+        ...prevData,
+        nombreCredits,
+        mensualitesImmo,
+        capitalRestantImmo,
+        dureeRestanteImmo,
+        mensualitesConso,
+        capitalRestantConso,
+        dureeRestanteConso,
+      };
+      calculer(
+        updatedData.capitalRestantImmo,
+        updatedData.capitalRestantConso,
+        updatedData.totalDettes,
+        updatedData.tresorerieSouhaitee,
+        updatedData.dureeSouhaitee,
+        updatedData.revenu || 0
+      );
+      return updatedData;
+    });
     onNext();
   };
 

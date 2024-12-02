@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Credits from "./Credits";
 import Contact from "./Contact";
 import AutresDettes from "./AutresDettes";
 import { ModalProps, CustomFormData } from "@/types/simulator";
+import { useCalculations } from "@/hooks/useCalculations";
 
 const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
+  const { calculer } = useCalculations();
   const [showCredits, setShowCredits] = useState(true);
   const [showEmail, setShowEmail] = useState(false);
   const checkboxRef = useRef<HTMLInputElement>(null);
@@ -93,6 +95,21 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     }
   };
 
+  const calculatedMensualite = useMemo(() => {
+    if (!formState) return 0;
+
+    const result = calculer(
+      formState.capitalRestantImmo,
+      formState.capitalRestantConso,
+      formState.totalDettes,
+      formState.tresorerieSouhaitee,
+      formState.dureeSouhaitee,
+      formState.revenu || 0
+    );
+
+    return result ? result.mensualiteApres : 0;
+  }, [formState, calculer]);
+
   return (
     <>
       <input
@@ -136,6 +153,7 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
                   await handleSubmit(contactData);
                 }}
                 setFormData={setFormState}
+                mensualite={calculatedMensualite}
               />
             ) : (
               <AutresDettes

@@ -1,15 +1,57 @@
-import { useState } from "react";
-import { ContactProps } from "@/types/simulator";
+import { useState, useEffect, useMemo } from "react";
+import { ContactProps, CustomFormData } from "@/types/simulator";
 import { contactSchema } from "@/schemas/contactSchema";
 import { useNotificationStore } from "@/stores/notificationStore";
 import { ZodError } from "zod";
+import { useCalculations } from "@/hooks/useCalculations";
 
-const Contact: React.FC<ContactProps> = ({ onFinish, setFormData }) => {
+const Contact: React.FC<ContactProps & { mensualite: number }> = ({
+  onFinish,
+  setFormData,
+  mensualite,
+}) => {
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const { addNotification } = useNotificationStore();
   const [isLoading, setIsLoading] = useState(false);
+  const { calculer } = useCalculations();
+
+  // Récupérer les données du formulaire directement via une prop
+  const [formDataState, setFormDataState] = useState<CustomFormData>();
+
+  // Utiliser useEffect uniquement pour mettre à jour le state local
+  useEffect(() => {
+    const updateFormData = async () => {
+      await setFormData((prevData) => {
+        if (prevData && !formDataState) {
+          setFormDataState(prevData);
+        }
+        return prevData;
+      });
+    };
+    updateFormData();
+  }, []); // Exécuter une seule fois au montage
+
+  // Calculer les valeurs après rachat
+  const calculatedValues = useMemo(() => {
+    if (!formDataState) return null;
+
+    return calculer(
+      formDataState.capitalRestantImmo,
+      formDataState.capitalRestantConso,
+      formDataState.totalDettes,
+      formDataState.tresorerieSouhaitee,
+      formDataState.dureeSouhaitee,
+      formDataState.revenu || 0
+    );
+  }, [formDataState, calculer]);
+
+  // Calculer les valeurs avant rachat
+  const mensualiteAvantRachat = useMemo(() => {
+    if (!formDataState) return 0;
+    return formDataState.mensualitesImmo + formDataState.mensualitesConso;
+  }, [formDataState]);
 
   const validateField = (
     field: keyof typeof contactSchema.shape,
@@ -75,7 +117,44 @@ const Contact: React.FC<ContactProps> = ({ onFinish, setFormData }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-1">
+      <div className="text-center mb-4">
+        <p>Votre mensualité estimée : {mensualite.toFixed(2)} €</p>
+      </div>
+      <div>
+        <p>Avant rachat</p>
+        <p>Mensualité crédit : {mensualiteAvantRachat} €</p>
+        <p>
+          Reste à vivre :{" "}
+          {formDataState?.revenu
+            ? formDataState.revenu - mensualiteAvantRachat
+            : 0}{" "}
+          €
+        </p>
+        <p className="text-sm italic">
+          (Avec une durée moyenne de crédits de :{" "}
+          {formDataState
+            ? Math.max(
+                formDataState.dureeRestanteImmo,
+                formDataState.dureeRestanteConso
+              )
+            : 0}{" "}
+          mois / TAEG moyen de : 9%)
+        </p>
+      </div>
+      <div>
+        <p>Après rachat</p>
+        <p>Mensualité du nouveau crédit : {mensualite.toFixed(2)} €</p>
+        <p>
+          Reste à vivre :{" "}
+          {calculatedValues ? calculatedValues.resteAVivreApres.toFixed(2) : 0}{" "}
+          €
+        </p>
+        <p className="text-sm italic">
+          (Sur une durée de : {formDataState?.dureeSouhaitee} mois / TAEG moyen
+          de : 3% / assurance facultative)
+        </p>
+      </div>
+      <div className="flex flex-col gap-1 mt-4">
         <div className="flex items-center justify-between">
           <p>Téléphone :</p>
           <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
@@ -119,7 +198,7 @@ const Contact: React.FC<ContactProps> = ({ onFinish, setFormData }) => {
         className="btn mt-4 border-none bg-gradient-button-light uppercase text-textColor rounded-full bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
         onClick={handleSubmit}
       >
-        {isLoading ? "Envoi en cours..." : "Recevoir ma simulation"}
+        {isLoading ? "Envoi en cours..." : "Envoyer ma demande"}
       </button>
     </>
   );

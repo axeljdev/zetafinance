@@ -24,7 +24,7 @@ function Contact() {
           <p className="text-lg font-semibold mb-1">
             Contacter nos interlocuteurs
           </p>
-          <p>+33 09 73 60 64 43</p>
+          <p>+33 09 72 60 64 43</p>
           <p>+33 07 69 76 26 36</p>
         </li>
       </ul>

@@ -104,7 +104,7 @@ const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
         className="btn mt-4 border-none bg-gradient-button-light uppercase text-textColor rounded-full bg-secondary text-base font-semibold duration-300 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring focus-visible:ring-focus focus-visible:ring-offset-2"
         onClick={handleNext}
       >
-        Suivant
+        Calculer mes mensualités
       </button>
     </>
   );

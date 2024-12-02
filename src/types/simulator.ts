@@ -51,6 +51,7 @@ export interface AutresDettesProps {
 export interface ContactProps {
   onFinish: (contactData: { telephone: string; email: string }) => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
+  mensualite: number;
 }
 
 export interface CreditSectionProps {

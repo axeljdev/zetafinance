@@ -5,7 +5,9 @@ export const useCalculations = () => {
     debtCapital: number,
     treso: number,
     newLast: number,
-    p0: number
+    p0: number,
+    isLocataire: boolean = false,
+    loyer: number = 0
   ) => {
     // Étape 1 : Calcul du montant total emprunté
     const amount = creditCapital + consoCapital + debtCapital + treso;
@@ -21,9 +23,10 @@ export const useCalculations = () => {
     const mensualiteApres = (amount * x * monthlyInterestRate) / (x - 1);
     const mensualiteAvant = creditCapital + consoCapital + debtCapital;
 
-    // Calcul des restes à vivre
-    const resteAVivreAvant = p0 - mensualiteAvant;
-    const resteAVivreApres = p0 - mensualiteApres;
+    // Calcul des restes à vivre en tenant compte du loyer pour les locataires
+    const revenusDisponibles = isLocataire ? p0 - loyer : p0;
+    const resteAVivreAvant = revenusDisponibles - mensualiteAvant;
+    const resteAVivreApres = revenusDisponibles - mensualiteApres;
 
     return {
       mensualiteAvant,

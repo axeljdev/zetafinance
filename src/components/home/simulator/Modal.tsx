@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const [formState, setFormState] = useState<CustomFormData>({
+  const [formState, setFormState] = useState<CustomFormData>(() => ({
     selectedType,
     revenu,
     loyer,
@@ -30,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     telephone: "",
     email: "",
     isSubmitted: false,
-  });
+  }));
 
   useEffect(() => {
     setFormState((prevState) => ({
@@ -103,8 +103,10 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
       formState.capitalRestantConso,
       formState.totalDettes,
       formState.tresorerieSouhaitee,
-      formState.dureeSouhaitee,
-      formState.revenu || 0
+      formState.dureeSouhaitee || 1,
+      formState.revenu || 0,
+      formState.selectedType === "locataire",
+      formState.loyer || 0
     );
 
     return result ? result.mensualiteApres : 0;

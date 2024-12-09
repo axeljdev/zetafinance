@@ -22,16 +22,15 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
 
   // Utiliser useEffect uniquement pour mettre à jour le state local
   useEffect(() => {
-    const updateFormData = async () => {
-      await setFormData((prevData) => {
-        if (prevData && !formDataState) {
+    if (!formDataState) {
+      const currentFormData = setFormData((prevData) => {
+        if (prevData) {
           setFormDataState(prevData);
         }
         return prevData;
       });
-    };
-    updateFormData();
-  }, []); // Exécuter une seule fois au montage
+    }
+  }, [formDataState, setFormData]);
 
   // Calculer les valeurs après rachat
   const calculatedValues = useMemo(() => {
@@ -42,8 +41,10 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
       formDataState.capitalRestantConso,
       formDataState.totalDettes,
       formDataState.tresorerieSouhaitee,
-      formDataState.dureeSouhaitee,
-      formDataState.revenu || 0
+      formDataState.dureeSouhaitee || 1,
+      formDataState.revenu || 0,
+      formDataState.selectedType === "locataire",
+      formDataState.loyer || 0
     );
   }, [formDataState, calculer]);
 
@@ -117,16 +118,19 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
 
   return (
     <>
-      <div className="text-center mb-4">
-        <p>Votre mensualité estimée : {mensualite.toFixed(2)} €</p>
-      </div>
-      <div>
-        <p>Avant rachat</p>
-        <p>Mensualité crédit : {mensualiteAvantRachat} €</p>
-        <p>
+      <div className="flex flex-col gap-1 pt-4 rounded-md">
+        <p className=" uppercase">Avant rachat</p>
+        <p className="font-bold">
+          Mensualité crédit : {mensualiteAvantRachat} €
+        </p>
+        <p className="font-bold">
           Reste à vivre :{" "}
           {formDataState?.revenu
-            ? formDataState.revenu - mensualiteAvantRachat
+            ? formDataState.revenu -
+              mensualiteAvantRachat -
+              (formDataState.selectedType === "locataire"
+                ? formDataState.loyer || 0
+                : 0)
             : 0}{" "}
           €
         </p>
@@ -141,10 +145,12 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
           mois / TAEG moyen de : 9%)
         </p>
       </div>
-      <div>
-        <p>Après rachat</p>
-        <p>Mensualité du nouveau crédit : {mensualite.toFixed(2)} €</p>
-        <p>
+      <div className="flex flex-col gap-1 p-2 rounded-md bg-gradient-card-light">
+        <p className="font-bold uppercase text-lg">Après rachat</p>
+        <p className="font-bold">
+          Mensualité du nouveau crédit : {mensualite.toFixed(2)} €
+        </p>
+        <p className="font-bold">
           Reste à vivre :{" "}
           {calculatedValues ? calculatedValues.resteAVivreApres.toFixed(2) : 0}{" "}
           €
@@ -154,7 +160,10 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
           de : 3% / assurance facultative)
         </p>
       </div>
-      <div className="flex flex-col gap-1 mt-4">
+      <div className="flex flex-col gap-1 mt-4 border-t-2 border-secondary">
+        <p className="uppercase font-bold text-lg my-6">
+          Alors contactez-nous !
+        </p>
         <div className="flex items-center justify-between">
           <p>Téléphone :</p>
           <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">

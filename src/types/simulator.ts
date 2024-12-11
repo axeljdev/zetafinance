@@ -41,17 +41,20 @@ export interface InputFieldProps {
 export interface CreditsProps {
   onNext: () => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
+  initialData: CustomFormData;
 }
 
 export interface AutresDettesProps {
   onNext: () => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
+  initialData?: CustomFormData;
 }
 
 export interface ContactProps {
   onFinish: (contactData: { telephone: string; email: string }) => void;
   setFormData: React.Dispatch<React.SetStateAction<CustomFormData>>;
   mensualite: number;
+  initialData: CustomFormData;
 }
 
 export interface CreditSectionProps {

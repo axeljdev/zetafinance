@@ -1,15 +1,42 @@
 import { useState } from "react";
 import { CreditsProps, CustomFormData } from "@/types/simulator";
 import { useCalculations } from "@/hooks/useCalculations";
+import NumericInput from "@/components/common/NumericInput";
 
-const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
-  const [nombreCredits, setNombreCredits] = useState(0);
-  const [mensualitesImmo, setMensualitesImmo] = useState(0);
-  const [capitalRestantImmo, setCapitalRestantImmo] = useState(0);
-  const [dureeRestanteImmo, setDureeRestanteImmo] = useState(0);
-  const [mensualitesConso, setMensualitesConso] = useState(0);
-  const [capitalRestantConso, setCapitalRestantConso] = useState(0);
-  const [dureeRestanteConso, setDureeRestanteConso] = useState(0);
+const Credits: React.FC<CreditsProps> = ({
+  onNext,
+  setFormData,
+  initialData,
+}) => {
+  const [nombreCredits, setNombreCredits] = useState(
+    initialData?.nombreCredits ? initialData.nombreCredits.toString() : ""
+  );
+  const [mensualitesImmo, setMensualitesImmo] = useState(
+    initialData?.mensualitesImmo ? initialData.mensualitesImmo.toString() : ""
+  );
+  const [capitalRestantImmo, setCapitalRestantImmo] = useState(
+    initialData?.capitalRestantImmo
+      ? initialData.capitalRestantImmo.toString()
+      : ""
+  );
+  const [dureeRestanteImmo, setDureeRestanteImmo] = useState(
+    initialData?.dureeRestanteImmo
+      ? initialData.dureeRestanteImmo.toString()
+      : ""
+  );
+  const [mensualitesConso, setMensualitesConso] = useState(
+    initialData?.mensualitesConso ? initialData.mensualitesConso.toString() : ""
+  );
+  const [capitalRestantConso, setCapitalRestantConso] = useState(
+    initialData?.capitalRestantConso
+      ? initialData.capitalRestantConso.toString()
+      : ""
+  );
+  const [dureeRestanteConso, setDureeRestanteConso] = useState(
+    initialData?.dureeRestanteConso
+      ? initialData.dureeRestanteConso.toString()
+      : ""
+  );
 
   const { calculer } = useCalculations();
 
@@ -17,13 +44,13 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
     setFormData((prevData: CustomFormData) => {
       const updatedData = {
         ...prevData,
-        nombreCredits,
-        mensualitesImmo,
-        capitalRestantImmo,
-        dureeRestanteImmo,
-        mensualitesConso,
-        capitalRestantConso,
-        dureeRestanteConso,
+        nombreCredits: Number(nombreCredits) || 0,
+        mensualitesImmo: Number(mensualitesImmo) || 0,
+        capitalRestantImmo: Number(capitalRestantImmo) || 0,
+        dureeRestanteImmo: Number(dureeRestanteImmo) || 0,
+        mensualitesConso: Number(mensualitesConso) || 0,
+        capitalRestantConso: Number(capitalRestantConso) || 0,
+        dureeRestanteConso: Number(dureeRestanteConso) || 0,
       };
       calculer(
         updatedData.capitalRestantImmo,
@@ -38,15 +65,21 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
     onNext();
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.value === "0") {
+      e.target.value = "";
+    }
+  };
+
   return (
     <>
       <label className="flex items-center justify-around">
         Nombre de crédits à regrouper :
-        <input
-          type="number"
-          min="1"
+        <NumericInput
           value={nombreCredits}
-          onChange={(e) => setNombreCredits(Number(e.target.value))}
+          onChange={setNombreCredits}
+          min={1}
+          placeholder="0"
           className="w-14 h-9 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70 rounded-xl focus-within:outline-secondary focus-within:outline-1"
           required
         />
@@ -55,13 +88,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Total des mensualités* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={mensualitesImmo}
-            onChange={(e) => setMensualitesImmo(Number(e.target.value))}
+            onChange={setMensualitesImmo}
+            min={0}
+            placeholder="0"
             className="grow w-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€/mois"
           />
           €/mois
         </label>
@@ -69,13 +103,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Total capital restant dû* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={capitalRestantImmo}
-            onChange={(e) => setCapitalRestantImmo(Number(e.target.value))}
+            onChange={setCapitalRestantImmo}
+            min={0}
+            placeholder="0"
             className="grow w-16 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€"
           />
           €
         </label>
@@ -83,13 +118,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Durée moyenne restante* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={dureeRestanteImmo}
-            onChange={(e) => setDureeRestanteImmo(Number(e.target.value))}
+            onChange={setDureeRestanteImmo}
+            min={0}
+            placeholder="0"
             className="grow w-9 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="mois"
           />
           mois
         </label>
@@ -98,13 +134,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Total des mensualités* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={mensualitesConso}
-            onChange={(e) => setMensualitesConso(Number(e.target.value))}
+            onChange={setMensualitesConso}
+            min={0}
+            placeholder="0"
             className="grow w-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€/mois"
           />
           €/mois
         </label>
@@ -112,13 +149,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Total capital restant dû* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={capitalRestantConso}
-            onChange={(e) => setCapitalRestantConso(Number(e.target.value))}
+            onChange={setCapitalRestantConso}
+            min={0}
+            placeholder="0"
             className="grow w-16 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€"
           />
           €
         </label>
@@ -126,13 +164,14 @@ const Credits: React.FC<CreditsProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Durée moyenne restante* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={dureeRestanteConso}
-            onChange={(e) => setDureeRestanteConso(Number(e.target.value))}
+            onChange={setDureeRestanteConso}
+            min={0}
+            placeholder="0"
             className="grow w-9 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="mois"
           />
           mois
         </label>

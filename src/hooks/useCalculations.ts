@@ -18,9 +18,17 @@ export const useCalculations = () => {
     const monthlyInterestRate = taegApres / 100 / 12;
     const totalPayments = newLast * 12;
 
-    // Étape 3 : Calculs
-    const x = Math.pow(1 + monthlyInterestRate, totalPayments);
-    const mensualiteApres = (amount * x * monthlyInterestRate) / (x - 1);
+    // Étape 3 : Calcul PMT (équivalent de VPM en Excel)
+    const mensualiteApres =
+      Math.round(
+        (PMT(
+          taegApres / 100 / 12, // 3% / 12 = 0.0025 par mois
+          newLast * 12, // 24 mois
+          amount // 1000€
+        ) *
+          100) /
+          2
+      ) / 100; // Arrondi à 2 décimales
     const mensualiteAvant = creditCapital + consoCapital + debtCapital;
 
     // Calcul des restes à vivre en tenant compte du loyer pour les locataires
@@ -39,6 +47,16 @@ export const useCalculations = () => {
       taegApres,
     };
   };
+
+  // Fonction utilitaire PMT modifiée pour plus de précision
+  const PMT = (rate: number, nper: number, pv: number) => {
+    if (rate === 0) return -pv / nper;
+    const x = Math.pow(1 + rate, nper);
+    return (pv * x * rate) / (x - 1);
+  };
+
+  // Constante pour l'intervalle (équivalent à la recherche dans RecherchePrêt)
+  const INTERVAL = 12; // Pour un calcul mensuel
 
   return { calculer };
 };

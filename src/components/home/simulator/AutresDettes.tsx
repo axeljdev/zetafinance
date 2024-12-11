@@ -2,21 +2,34 @@ import { useState } from "react";
 import { AutresDettesProps } from "@/types/simulator";
 import { autresDettesSchema } from "@/schemas/simulatorSchema";
 import { useNotificationStore } from "@/stores/notificationStore";
+import NumericInput from "@/components/common/NumericInput";
 
-const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
-  const [totalDettes, setTotalDettes] = useState(0);
-  const [dureeRestante, setDureeRestante] = useState(0);
-  const [tresorerieSouhaitee, setTresorerieSouhaitee] = useState(0);
-  const [dureeSouhaitee, setDureeSouhaitee] = useState(0);
+const AutresDettes: React.FC<AutresDettesProps> = ({
+  onNext,
+  setFormData,
+  initialData,
+}) => {
+  const [totalDettes, setTotalDettes] = useState(
+    initialData?.totalDettes?.toString() || ""
+  );
+  const [dureeRestante, setDureeRestante] = useState(
+    initialData?.dureeRestante?.toString() || ""
+  );
+  const [tresorerieSouhaitee, setTresorerieSouhaitee] = useState(
+    initialData?.tresorerieSouhaitee?.toString() || ""
+  );
+  const [dureeSouhaitee, setDureeSouhaitee] = useState(
+    initialData?.dureeSouhaitee?.toString() || ""
+  );
   const { addNotification } = useNotificationStore();
 
   const handleNext = () => {
     try {
       const formData = {
-        totalDettes,
-        dureeRestante,
-        tresorerieSouhaitee,
-        dureeSouhaitee,
+        totalDettes: Number(totalDettes) || 0,
+        dureeRestante: Number(dureeRestante) || 0,
+        tresorerieSouhaitee: Number(tresorerieSouhaitee) || 0,
+        dureeSouhaitee: Number(dureeSouhaitee) || 0,
       };
 
       autresDettesSchema.parse(formData);
@@ -42,14 +55,14 @@ const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Total des dettes à racheter* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={totalDettes}
-            onChange={(e) => setTotalDettes(Number(e.target.value))}
+            onChange={setTotalDettes}
+            min={0}
             placeholder="100000"
             className="grow w-12 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€"
           />
           €
         </label>
@@ -57,14 +70,14 @@ const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p>Durée moyenne restante* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={dureeRestante}
-            onChange={(e) => setDureeRestante(Number(e.target.value))}
+            onChange={setDureeRestante}
+            min={0}
             placeholder="5"
             className="grow w-9 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="mois"
           />
           mois
         </label>
@@ -72,14 +85,14 @@ const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around mt-10">
         <p className="uppercase">Trésorerie souhaitée* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={tresorerieSouhaitee}
-            onChange={(e) => setTresorerieSouhaitee(Number(e.target.value))}
+            onChange={setTresorerieSouhaitee}
+            min={0}
             placeholder="20000"
             className="grow w-12 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="€"
           />
           €
         </label>
@@ -87,14 +100,14 @@ const AutresDettes: React.FC<AutresDettesProps> = ({ onNext, setFormData }) => {
       <div className="flex items-center justify-around">
         <p className="uppercase">Durée souhaitée* :</p>
         <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
-          <input
-            type="number"
-            min="0"
+          <NumericInput
             value={dureeSouhaitee}
-            onChange={(e) => setDureeSouhaitee(Number(e.target.value))}
+            onChange={setDureeSouhaitee}
+            min={0}
             placeholder="12"
             className="grow w-9 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
             required
+            suffix="mois"
           />
           mois
         </label>

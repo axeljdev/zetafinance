@@ -4,6 +4,7 @@ import Contact from "./Contact";
 import AutresDettes from "./AutresDettes";
 import { ModalProps, CustomFormData } from "@/types/simulator";
 import { useCalculations } from "@/hooks/useCalculations";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   const { calculer } = useCalculations();
@@ -11,6 +12,9 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   const [showEmail, setShowEmail] = useState(false);
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [previousStep, setPreviousStep] = useState<
+    "credits" | "dettes" | "contact"
+  >("credits");
 
   const [formState, setFormState] = useState<CustomFormData>(() => ({
     selectedType,
@@ -112,6 +116,16 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     return result ? result.mensualiteApres : 0;
   }, [formState, calculer]);
 
+  const handleBack = () => {
+    if (showEmail) {
+      setShowEmail(false);
+      setPreviousStep("dettes");
+    } else {
+      setShowCredits(true);
+      setPreviousStep("credits");
+    }
+  };
+
   return (
     <>
       <input
@@ -122,8 +136,17 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
       />
       <div className="modal" role="dialog">
         <div className="modal-box bg-gradient-button-dark p-4">
+          {(showEmail || !showCredits) && (
+            <button
+              onClick={handleBack}
+              className="absolute top-4 left-4 text-textColor hover:text-secondary transition-all duration-300"
+              aria-label="Retour à l'étape précédente"
+            >
+              <FaArrowLeft size={20} />
+            </button>
+          )}
           <h3 className="text-xl font-bold uppercase mb-4 after:absolute after:top-12 after:left-4 after:w-10 after:h-[5px] after:bg-secondary">
-            <span className="text-secondary ">
+            <span className="text-secondary">
               {showEmail ? "Étape 3" : "Étape 2"}
             </span>{" "}
             : {showEmail ? "Contact" : "Vos crédits"}
@@ -146,8 +169,12 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
               </>
             ) : showCredits ? (
               <Credits
-                onNext={() => setShowCredits(false)}
+                onNext={() => {
+                  setShowCredits(false);
+                  setPreviousStep("credits");
+                }}
                 setFormData={setFormState}
+                initialData={formState}
               />
             ) : showEmail ? (
               <Contact
@@ -156,11 +183,16 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
                 }}
                 setFormData={setFormState}
                 mensualite={calculatedMensualite}
+                initialData={formState}
               />
             ) : (
               <AutresDettes
-                onNext={() => setShowEmail(true)}
+                onNext={() => {
+                  setShowEmail(true);
+                  setPreviousStep("dettes");
+                }}
                 setFormData={setFormState}
+                initialData={formState}
               />
             )}
           </div>

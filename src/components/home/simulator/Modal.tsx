@@ -116,8 +116,14 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
     return result ? result.mensualiteApres : 0;
   }, [formState, calculer]);
 
-  const handleBack = () => {
-    if (showEmail) {
+  const handleBack = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (showCredits) {
+      const modalBackdrop = document.querySelector(
+        ".modal-backdrop"
+      ) as HTMLElement;
+      modalBackdrop?.click();
+    } else if (showEmail) {
       setShowEmail(false);
       setPreviousStep("dettes");
     } else {
@@ -136,21 +142,40 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
       />
       <div className="modal" role="dialog">
         <div className="modal-box bg-gradient-button-dark p-4">
-          {(showEmail || !showCredits) && (
+          <div className="flex items-start gap-4">
             <button
               onClick={handleBack}
-              className="absolute top-4 left-4 text-textColor hover:text-secondary transition-all duration-300"
-              aria-label="Retour à l'étape précédente"
+              className="text-textColor hover:text-secondary transition-all duration-300 mt-1"
+              aria-label={
+                showCredits ? "Fermer la modale" : "Retour à l'étape précédente"
+              }
             >
-              <FaArrowLeft size={20} />
+              {showCredits ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <FaArrowLeft size={20} />
+              )}
             </button>
-          )}
-          <h3 className="text-xl font-bold uppercase mb-4 after:absolute after:top-12 after:left-4 after:w-10 after:h-[5px] after:bg-secondary">
-            <span className="text-secondary">
-              {showEmail ? "Étape 3" : "Étape 2"}
-            </span>{" "}
-            : {showEmail ? "Contact" : "Vos crédits"}
-          </h3>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold uppercase mb-4 after:absolute after:top-12 after:left-[3.25rem] after:w-10 after:h-[5px] after:bg-secondary">
+                <span className="text-secondary">
+                  {showEmail ? "Étape 3" : "Étape 2"}
+                </span>{" "}
+                : {showEmail ? "Contact" : "Vos crédits"}
+              </h3>
+            </div>
+          </div>
           <div className="flex flex-col gap-4">
             {showConfirmation ? (
               <>

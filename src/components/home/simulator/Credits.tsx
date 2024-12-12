@@ -70,7 +70,6 @@ const Credits: React.FC<CreditsProps> = ({
       e.target.value = "";
     }
   };
-
   return (
     <>
       <label className="flex items-center justify-around">
@@ -148,7 +147,7 @@ const Credits: React.FC<CreditsProps> = ({
       </div>
       <div className="flex items-center justify-around">
         <p>Total capital restant dû* :</p>
-        <label className="input input-bordered h-10 flex items-center gap-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
+        <label className="input input-bordered h-10 flex items-center gp-1 text-sm text-primary focus-within:outline-secondary focus-within:outline-1">
           <NumericInput
             value={capitalRestantConso}
             onChange={setCapitalRestantConso}

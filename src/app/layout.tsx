@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Footer />
         <ScrollToTop />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

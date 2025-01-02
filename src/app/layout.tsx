@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={lato.className}>
       <head>
+        <SpeedInsights />
         {gaTrackingId ? (
           <>
             <Script

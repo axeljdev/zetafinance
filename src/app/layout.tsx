@@ -37,7 +37,6 @@ export default function RootLayout({
   return (
     <html lang="fr" className={lato.className}>
       <head>
-        <SpeedInsights />
         {gaTrackingId ? (
           <>
             <Script
@@ -50,7 +49,7 @@ export default function RootLayout({
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${gaTrackingId}');
-              `}
+                `}
             </Script>
           </>
         ) : null}
@@ -58,6 +57,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Navbar />
         {children}
+        <SpeedInsights />
         <Footer />
         <ScrollToTop />
       </body>

@@ -4,6 +4,7 @@ import { Lato } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import Script from "next/script";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -32,6 +33,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={lato.className}>
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GA_TRACKING_ID}');
+          `}
+        </Script>
+      </head>
       <body suppressHydrationWarning>
         <Navbar />
         {children}

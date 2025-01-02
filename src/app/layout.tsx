@@ -57,9 +57,9 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Navbar />
         {children}
-        <SpeedInsights />
         <Footer />
         <ScrollToTop />
+        <SpeedInsights />
       </body>
     </html>
   );

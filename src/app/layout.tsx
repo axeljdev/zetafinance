@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Axeptio from "@/components/Axeptio";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
         ) : null}
       </head>
       <body suppressHydrationWarning>
+        <Axeptio />
         <Navbar />
         {children}
         <Footer />

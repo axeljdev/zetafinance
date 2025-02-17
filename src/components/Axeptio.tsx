@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Axeptio() {
   useEffect(() => {
     const script = document.createElement("script");
-    
+
     const AXEPTIO_CLIENT_ID = process.env.NEXT_PUBLIC_AXEPTIO_CLIENT_ID;
     const AXEPTIO_VERSION = process.env.NEXT_PUBLIC_AXEPTIO_VERSION;
 

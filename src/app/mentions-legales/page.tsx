@@ -136,7 +136,7 @@ function Page() {
             </p>
             
             <p className="text-sm text-gray-600 text-center">
-              Crédit Photos iStockphoto | Conception Maxim | Développement Axel Janiak | Pour toute information complémentaire, contactez-nous par email : contact@zeta-finance.fr Tel. : 09 72 60 64 43
+              Crédit Photos iStockphoto | Conception Maxim | Développement Axel Janiak | Pour toute information complémentaire, contactez-nous par email : contact@zeta-finance.fr Tel. : 09 72 12 14 01
             </p>
           </div>
         </section>

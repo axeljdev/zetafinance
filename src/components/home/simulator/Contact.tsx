@@ -157,10 +157,16 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
         </p>
         <p className="text-sm italic">
           (Sur une durée de : {formDataState?.dureeSouhaitee} mois / TAEG moyen
-          de : 3% / assurance facultative)
+          de : 3% / hors assurance facultative)
         </p>
       </div>
-      <div className="flex flex-col gap-1 mt-4 border-t-2 border-secondary">
+      <p className="text-xs italic">*Assurance Emprunteurs facultative</p>
+      <p className="text-xs italic">
+        Assurez-vous contre les risques de Décès, Invalidité, Maladie
+        L'assurance prend en charge le solde de votre crédit ou vos mensualités
+        : simulation à faire lors de l’étude de votre dossier
+      </p>
+      <div className="flex flex-col gap-1 border-t-2 border-secondary">
         <p className="uppercase font-bold text-lg my-6">
           Alors contactez-nous !
         </p>

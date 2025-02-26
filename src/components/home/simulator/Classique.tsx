@@ -25,6 +25,18 @@ function Classique() {
       return;
     }
 
+    if (montant < 1000 || montant > 50000) {
+      setErrorMessage(
+        "Le montant doit être compris entre 1 000 € et 50 000 €."
+      );
+      return;
+    }
+
+    if (duree < 6 || duree > 84) {
+      setErrorMessage("La durée doit être comprise entre 6 et 84 mois.");
+      return;
+    }
+
     if (!type) {
       setErrorMessage("Veuillez sélectionner un type de projet.");
       return;
@@ -63,9 +75,11 @@ function Classique() {
               max="50000"
               placeholder="25000"
               value={montant || ""}
-              onChange={(e) =>
-                setMontant(Math.max(1000, parseInt(e.target.value)))
-              }
+              onChange={(e) => {
+                const value =
+                  e.target.value === "" ? undefined : parseInt(e.target.value);
+                setMontant(value);
+              }}
               className="grow w-20 h-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
               required
             />
@@ -90,7 +104,11 @@ function Classique() {
               max="84"
               placeholder="48"
               value={duree || ""}
-              onChange={(e) => setDuree(Math.max(6, parseInt(e.target.value)))}
+              onChange={(e) => {
+                const value =
+                  e.target.value === "" ? undefined : parseInt(e.target.value);
+                setDuree(value);
+              }}
               className="grow w-14 h-10 text-primary text-right placeholder:text-gray-400 placeholder:opacity-70"
               required
             />

@@ -12,6 +12,11 @@ const nextConfig = {
     return [
       {
         source: "/erp",
+        destination: "http://zetafinance.fr/erp",
+        permanent: true,
+      },
+      {
+        source: "/erp/:path*",
         destination: "http://zetafinance.fr/erp/:path*",
         permanent: true,
       },

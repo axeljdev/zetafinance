@@ -8,6 +8,15 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/erp",
+        destination: "http://zetafinance.fr/erp/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

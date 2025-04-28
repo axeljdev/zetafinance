@@ -5,6 +5,13 @@ import {
 } from "@/utils/emailTemplates";
 import { CustomFormData } from "@/types/simulator";
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 export class EmailService {
   constructor() {
     if (!process.env.SENDGRID_API_KEY || !process.env.EMAIL_USER) {
@@ -17,7 +24,7 @@ export class EmailService {
     try {
       const text =
         template === "contact"
-          ? formatContactEmail(formData as any)
+          ? formatContactEmail(formData as ContactFormData)
           : formatSimulationEmail(formData as CustomFormData);
 
       const msg = {
@@ -25,7 +32,7 @@ export class EmailService {
         from: process.env.EMAIL_USER!,
         subject:
           template === "contact"
-            ? `Contact de ${(formData as any).name}`
+            ? `Contact de ${(formData as ContactFormData).name}`
             : "Nouvelle simulation de regroupement de crédits",
         text: text,
       };

@@ -12,6 +12,7 @@ const Modal: React.FC<ModalProps> = ({ selectedType, revenu, loyer }) => {
   const [showEmail, setShowEmail] = useState(false);
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [previousStep, setPreviousStep] = useState<
     "credits" | "dettes" | "contact"
   >("credits");

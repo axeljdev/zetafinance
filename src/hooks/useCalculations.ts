@@ -15,8 +15,6 @@ export const useCalculations = () => {
     // Étape 2 : Paramètres financiers
     const taegAvant = 9;
     const taegApres = 3;
-    const monthlyInterestRate = taegApres / 100 / 12;
-    const totalPayments = newLast * 12;
 
     // Étape 3 : Calcul PMT (équivalent de VPM en Excel)
     const mensualiteApres =
@@ -54,9 +52,6 @@ export const useCalculations = () => {
     const x = Math.pow(1 + rate, nper);
     return (pv * x * rate) / (x - 1);
   };
-
-  // Constante pour l'intervalle (équivalent à la recherche dans RecherchePrêt)
-  const INTERVAL = 12; // Pour un calcul mensuel
 
   return { calculer };
 };

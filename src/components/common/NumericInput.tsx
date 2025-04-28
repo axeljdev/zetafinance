@@ -17,8 +17,8 @@ const NumericInput = ({
   min = 0,
   className = "",
   required = false,
-  suffix = "",
 }: NumericInputProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFocused, setIsFocused] = useState(false);
   const [displayValue, setDisplayValue] = useState(value);
 

@@ -65,11 +65,6 @@ const Credits: React.FC<CreditsProps> = ({
     onNext();
   };
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.target.value === "0") {
-      e.target.value = "";
-    }
-  };
   return (
     <>
       <label className="flex items-center justify-around">

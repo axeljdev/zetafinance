@@ -192,10 +192,10 @@ function Classique() {
                 *Assurance Emprunteurs facultative
               </p>
               <p className="text-xs italic">
-                Assurez-vous contre les risques de Décès, Invalidité, Maladie
-                L'assurance prend en charge le solde de votre crédit ou vos
-                charge le solde de votre crédit ou vos mensualités : simulation
-                à faire lors de l'étude de votre dossier
+                Assurez-vous contre les risques de Décès, Invalidité, Maladie et
+                Accident. L&apos;assurance prend en charge le solde de votre
+                crédit ou vos mensualités : simulation à faire lors de
+                l&apos;étude de votre dossier
               </p>
               <div className="flex gap-4 justify-center">
                 <a

@@ -23,7 +23,7 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
   // Utiliser useEffect uniquement pour mettre à jour le state local
   useEffect(() => {
     if (!formDataState) {
-      const currentFormData = setFormData((prevData) => {
+      setFormData((prevData) => {
         if (prevData) {
           setFormDataState(prevData);
         }

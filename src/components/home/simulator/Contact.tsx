@@ -163,8 +163,8 @@ const Contact: React.FC<ContactProps & { mensualite: number }> = ({
       <p className="text-xs italic">*Assurance Emprunteurs facultative</p>
       <p className="text-xs italic">
         Assurez-vous contre les risques de Décès, Invalidité, Maladie
-        L'assurance prend en charge le solde de votre crédit ou vos mensualités
-        : simulation à faire lors de l’étude de votre dossier
+        L&apos;assurance prend en charge le solde de votre crédit ou vos
+        mensualités : simulation à faire lors de l&apos;étude de votre dossier
       </p>
       <div className="flex flex-col gap-1 border-t-2 border-secondary">
         <p className="uppercase font-bold text-lg my-6">

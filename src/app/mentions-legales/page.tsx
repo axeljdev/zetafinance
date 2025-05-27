@@ -9,7 +9,7 @@ function Page() {
           <p>
             ZETA FINANCE SAS au capital de 2 000 € enregistrée au registre du
             commerce et des sociétés de Bordeaux sous le numéro 827482878, sise
-            7 rue Victor Hugo 33185 le Haillan.
+            20 rue jean mermoz 33185 le Haillan.
           </p>
 
           <div>
@@ -22,19 +22,6 @@ function Page() {
               Prudentiel et de Résolution (ACPR), 4 Place de Budapest - CS 92459
               - 75439 - PARIS CEDEX 09 - Téléphone : 01 49 95 40 00 - Site
               internet : www.acpr.banque-france.fr.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-3">NOS PARTENAIRES</h2>
-            <p>
-              CFCAL 1 rue du Dôme 67003 STRASBOURG
-              <br />
-              CREATIS 61 avenue Halley - Parc de la Haute Borne - 59650
-              VILLENEUVE D&apos;ASCQ
-              <br />
-              MY MONEY BANK 20 avenue André-Pothin Tour Euro Plaza 92063 PARIS
-              LA DEFENSE CEDEX
             </p>
           </div>
 

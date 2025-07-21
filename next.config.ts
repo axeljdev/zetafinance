@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
+    // Supprimez "unoptimized: true" ou changez en :
+    formats: ["image/webp", "image/avif"],
   },
   webpack: (config: { resolve: { fallback: { fs: boolean } } }) => {
     config.resolve.fallback = { fs: false };

@@ -60,8 +60,16 @@ function Summary() {
       <div className="relative">
         <ul className="flex flex-col gap-5">
           {etapesDelaisContent.map((section) => {
-            const sectionId = section.step.toLowerCase();
+            // Générer l'ID de la même manière que dans Section.tsx
+            const sectionId = section.step === "LES DÉLAIS" 
+              ? section.step.toLowerCase().replace(/\s+/g, '-')
+              : section.step.toLowerCase();
             const isActive = activeSection === sectionId;
+            
+            // Affichage spécial pour LES DÉLAIS
+            const displayText = section.step === "LES DÉLAIS" 
+              ? section.step 
+              : `${section.step} : ${section.stepTitle}`;
             
             return (
               <li 
@@ -74,7 +82,7 @@ function Summary() {
                     isActive ? "text-secondary" : "group-hover:text-secondary"
                   }`}
                 >
-                  <p className="2xl:text-xl">{section.step} : {section.stepTitle}</p>
+                  <p className="2xl:text-xl">{displayText}</p>
                   {isActive && (
                     <div className="absolute -bottom-2 left-0 w-full">
                       <div 
